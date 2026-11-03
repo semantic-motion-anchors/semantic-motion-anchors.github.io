@@ -8,7 +8,8 @@
     const dots = [...pager.querySelectorAll('[data-to]')];
     let index = 0;
     function show(target, announce) {
-      slides[index].querySelectorAll('video').forEach(video => video.pause());
+      const from = slides[index];
+      from.querySelectorAll('video').forEach(video => { if (!video.paused) video.pause(); });
       index = (target + slides.length) % slides.length;
       const previous = (index + slides.length - 1) % slides.length;
       const next = (index + 1) % slides.length;
@@ -27,9 +28,12 @@
         dots[j].setAttribute('aria-current', String(j === index));
       });
       count.textContent = (index + 1) + ' / ' + slides.length;
+      if (from !== slides[index]) {
+        panel.dispatchEvent(new CustomEvent('carouselchange', {detail: {from, to: slides[index]}}));
+      }
       if (announce) {
         const active = slides[index];
-        status.textContent = (panel.dataset.itemName || 'Example') + ' ' + (index + 1) + ' of ' + slides.length + '. ' + active.dataset.label;
+        status.textContent = (panel.dataset.itemName || 'Example') + ' ' + (index + 1) + ' of ' + slides.length + '.' + (active.dataset.label ? ' ' + active.dataset.label : '');
       }
     }
     pager.querySelectorAll('[data-step]').forEach(button => {
@@ -38,6 +42,7 @@
     dots.forEach((button, j) => button.addEventListener('click', () => show(j, true)));
     // Arrow keys on the pager change examples. Native video controls keep their own shortcuts.
     pager.addEventListener('keydown', event => {
+      if (event.target.matches('select')) return;
       if (event.key !== 'ArrowLeft' && event.key !== 'ArrowRight') return;
       event.preventDefault();
       show(index + (event.key === 'ArrowLeft' ? -1 : 1), true);
