@@ -136,12 +136,23 @@
 .clip-album.is-ready .examples-pager [data-step] {
   align-self: start; width: 44px; height: 44px; margin-top: calc(3.3rem + 25%);
 }
-#comparisons > .video-pair { max-width: 31rem; margin: 1rem auto 0; align-items: end; }
-#comparisons > .video-pair video { aspect-ratio: 2 / 3; width: 100%; height: auto; }
-#generation-demo .video-pair { margin-block: .75rem; }
-#generation-demo .gallery-controls { margin-bottom: 0; }
-@media (max-width: 700px) {
-  #comparisons > .video-pair { grid-template-columns: repeat(2,minmax(0,1fr)); gap: .5rem; }
+#application > .container { width: 100%; }
+.study-album { margin-block: 1rem; }
+.study-album .study-card { text-align: left; }
+.study-card .study-example { margin: 0 0 .55rem; font-size: 1rem; font-weight: 650; color: var(--ink); }
+.study-card .video-pair { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: clamp(.4rem, 2vw, 1rem); }
+.study-card .method-video { display: grid; grid-template-rows: minmax(2.5rem, auto) 1fr; }
+.study-card .method-video figcaption { align-self: center; margin: 0; line-height: 1.25; color: var(--ink); font-size: clamp(.8rem, 1.8vw, .95rem); }
+.study-card .retrieved-pair video { aspect-ratio: 2/3; }
+.study-card .generated-pair video { aspect-ratio: 4/3; }
+.study-card .gallery-controls { margin: .6rem 0 .2rem; }
+.study-card .generation-demo { margin-top: .8rem; }
+.study-jump { display: none; }
+@media (max-width: 580px) {
+  .study-album .album-progress .album-dot, .study-album .examples-count { display: none; }
+  .study-jump { display: block; font: inherit; font-size: .9rem; color: var(--ink); border: 1px solid var(--line); border-radius: .5rem; background: white; padding: .45rem .65rem; }
+  .study-card .generation-demo > summary { padding: .65rem .55rem; font-size: .88rem; }
+  .study-card .research-detail-body { padding: .2rem .35rem .55rem; }
 }
 @media (max-width: 430px) {
   .description-heading { gap: .3rem; }
