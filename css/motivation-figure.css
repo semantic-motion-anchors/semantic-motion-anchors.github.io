@@ -1,0 +1,35 @@
+#motivation .enumeration-figure {
+  max-width: 38rem; margin: 1.35rem auto 0; text-align: center; color: var(--ink);
+}
+.enumeration-figure .spoken-enumeration {
+  margin: .28rem 0 .85rem; font-size: clamp(1.42rem, 2.8vw, 1.9rem);
+  font-weight: 550; line-height: 1.25; color: var(--ink);
+}
+.gesture-studies { display: grid; grid-template-columns: repeat(2, minmax(0,1fr)); }
+.gesture-study svg { width: 100%; max-width: 13rem; height: auto; display: block; margin: 0 auto; }
+.gesture-study p { margin: .12rem 0 0; padding: 0 .1rem; font-size: clamp(.83rem,2vw,1rem); font-weight: 550; }
+.gesture-outline { stroke: #326cce; stroke-width: 2.2; stroke-linecap: round; stroke-linejoin: round; }
+.gesture-outline .hand { fill: #ecf3ff; }
+.gesture-outline .crease { fill: none; stroke: #799cd3; stroke-width: 1.5; }
+.gesture-outline .cuff { fill: #f5f7fa; stroke: #687e99; stroke-width: 1.7; }
+.gesture-outline .cuff-seam { fill: none; stroke: #b2c1d3; stroke-width: 1; }
+.gesture-study .count-marks { fill: var(--primary-color); font: 600 15px system-ui,sans-serif; text-anchor: middle; }
+.gesture-study .trajectory { fill: none; stroke: #77a4e9; stroke-width: 1.7; stroke-dasharray: 2 5; stroke-linecap: round; }
+.gesture-study .locations { fill: var(--primary-color); stroke: white; stroke-width: 1.5; }
+.shared-intent { --intent-accent: #85dcd8; position: relative; margin-top: .48rem; padding-top: 1.12rem; }
+.shared-intent::before {
+  content: ""; position: absolute; inset: 0 25% auto; height: .6rem;
+  border: 1.5px solid var(--intent-accent); border-top: 0; border-radius: 0 0 7px 7px;
+}
+.shared-intent::after {
+  content: ""; position: absolute; left: 50%; top: .6rem;
+  height: .55rem; border-left: 1.5px solid var(--intent-accent);
+}
+.shared-intent span {
+  display: inline-block; padding: .24rem .9rem; border: 1px solid var(--intent-accent);
+  border-radius: 1.1rem; background: var(--intent-accent); color: var(--ink);
+  font-size: .92rem; font-weight: 650; line-height: 1.4;
+}
+.enumeration-figure figcaption {
+  margin: .78rem auto 0; font-size: clamp(1rem, 2.3vw, 1.14rem); line-height: 1.5;
+}
