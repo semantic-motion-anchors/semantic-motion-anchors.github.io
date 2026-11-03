@@ -1,0 +1,317 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Semantic Motion Anchors: Bridging Motion and Meaning in Co-Speech Gestures</title><meta name="description" content="Semantic Motion Anchors: paper, qualitative retrieval examples, gesture generation videos and SEMANTIX."><link rel="icon" href="images/logos/mpi_favicon.png"><link rel="stylesheet" href="css/bulma.min.css"><link rel="stylesheet" href="css/mustreason.css"><link rel="stylesheet" href="css/research-flow.css?v=result-details-1"><script defer src="js/project.js"></script><script defer src="js/comparisons.js?v=study-demo"></script><link rel="stylesheet" href="css/local-gallery.css?v=result-numbers"><script defer src="js/local-gallery.js?v=result-numbers"></script><link rel="stylesheet" href="css/motivation-figure.css"></head><body><a class="skip" href="#main">Skip to content</a><main id="main"><section class="hero">
+<div class="hero-body">
+<div class="container is-max-desktop">
+<div class="columns is-centered">
+<div class="column has-text-centered"><h1 class="title is-1 publication-title"><span class="project-name">Semantic Motion Anchors</span>: Bridging Motion and Meaning in Co-Speech Gestures</h1><p class="title is-3">NeurIPS 2026</p><p class="is-size-5 publication-authors authors"><span class="author-block"><a href="https://varsha33.github.io/">Varsha Suresh</a><sup>1,*</sup></span> <span class="author-block"><a href="https://aboots.github.io/">Mohammad Mahdi Abootorabi</a><sup>3,4,5,†,*</sup></span> <span class="author-block">Mohamed Salman<sup>1</sup></span> <span class="author-block"><a href="https://m-hamza-mughal.github.io/">M. Hamza Mughal</a><sup>2</sup></span> <span class="author-block"><a href="https://people.mpi-inf.mpg.de/~theobalt/">Christian Theobalt</a><sup>1,2</sup></span> <span class="author-block"><a href="https://sites.google.com/view/ashwin-ram/home">Ashwin Ram</a><sup>1</sup></span> <span class="author-block"><a href="https://hci.cs.uni-saarland.de/people/juergen-steimle/">Jürgen Steimle</a><sup>1</sup></span> <span class="author-block"><a href="https://www.uni-saarland.de/lehrstuhl/demberg/members/verademberg.html">Vera Demberg</a><sup>1,2</sup></span> </p><p class="affiliations"><sup>1</sup>Saarland University   <sup>2</sup>MPI for Informatics, Saarland Informatics Campus<br/>
+<sup>3</sup>University of British Columbia   <sup>4</sup>Vector Institute   <sup>5</sup>Zuse School ELIZA<br/><span>* Equal contribution</span></p><details class="source-note author-funding"><summary>Author funding</summary><p><sup>†</sup>This author is supported by the Konrad Zuse School of Excellence in Learning and Intelligent Systems (ELIZA) through the DAAD programme Konrad Zuse Schools of Excellence in Artificial Intelligence, sponsored by the Federal Ministry of Education and Research.</p></details><div class="column has-text-centered"><div class="publication-links"><span class="link-block"><a class="external-link button is-normal is-rounded is-dark" href="https://arxiv.org/pdf/2605.30608v3">Paper</a></span><span class="link-block"><a class="external-link button is-normal is-rounded is-dark" href="https://github.com/aboots/Semantic_Motion_Anchors">Code</a></span><span class="link-block"><a class="external-link button is-normal is-rounded is-dark" href="dataset.html">SEMANTIX overview</a></span><span class="link-block"><a class="external-link button is-normal is-rounded is-dark" href="https://huggingface.co/datasets/aboots/SEMANTIX">Hugging Face</a></span><span class="link-block"><a class="external-link button is-normal is-rounded is-dark" href="https://arxiv.org/abs/2605.30608">arXiv</a></span></div></div></div>
+</div>
+</div>
+</div>
+</section><section class="hero teaser" id="motivation">
+<div class="container is-max-desktop">
+<div class="hero-body has-text-centered"><h2 class="title is-3">Motivation</h2><figure class="enumeration-figure">
+  <p class="spoken-enumeration">“first, second, third”</p>
+  <div class="gesture-studies">
+    <div class="gesture-study">
+      <svg viewBox="0 0 220 177" role="img" aria-labelledby="enumeration-count-title">
+        <title id="enumeration-count-title">A palm with three fingers extended and numbered in sequence.</title>
+        <g class="count-marks">
+          <text x="78" y="37">1</text>
+          <text x="111" y="17">2</text>
+          <text x="145" y="24">3</text>
+        </g>
+        <g class="gesture-outline">
+          <!-- Palm, three extended fingers and the curled little finger. -->
+          <path class="hand" d="M97 152 C96 143 88 136 82 128
+            L67 107 C63 101 64 96 68 93 C72 90 76 92 81 97 L89 104
+            L82 55 C81 49 84 45 88 45 C93 44 95 47 97 54 L106 90
+            L105 38 C105 32 108 28 112 28 C117 28 120 31 120 38 L125 87
+            L130 45 C131 39 133 36 138 37 C143 38 144 42 143 48 L140 91
+            L148 81 C151 77 155 76 159 79 C163 82 162 86 160 90 L154 104
+            L152 121 C151 132 146 138 140 145 L139 151 Z"/>
+          <!-- Thumb folded across the palm and creases of the curled finger. -->
+          <path class="crease" d="M74 97 C80 95 87 98 93 102 L106 110
+            C110 113 110 117 107 119 C104 122 100 121 95 119 L85 115
+            M103 122 C107 126 109 130 109 134
+            M155 97 C151 95 148 98 147 102 L145 110 C144 115 147 118 151 117"/>
+          <path class="cuff" d="M94 149 L143 147 L144 164 L95 166 Z"/>
+          <path class="cuff-seam" d="M100 159 L137 157"/>
+        </g>
+      </svg>
+      <p>Counting on fingers</p>
+    </div>
+    <div class="gesture-study">
+      <svg viewBox="0 0 220 177" role="img" aria-labelledby="enumeration-point-title">
+        <title id="enumeration-point-title">An index finger points to the last of three positions along a dotted path.</title>
+        <path class="trajectory" d="M48 55 Q75 42 101 41 T154 48"/>
+        <g class="locations">
+          <circle cx="48" cy="55" r="3.7"/><circle cx="101" cy="41" r="3.7"/>
+          <circle cx="154" cy="48" r="4.3"/>
+        </g>
+        <g class="count-marks">
+          <text x="48" y="42">1</text>
+          <text x="101" y="28">2</text>
+          <text x="154" y="35">3</text>
+        </g>
+        <g class="gesture-outline">
+          <!-- Index finger reaching up to the last position. -->
+          <path class="hand" d="M68 144 L81 128 C84 121 84 113 86 106
+            L90 93 C92 86 97 84 101 87 C105 89 104 94 103 100
+            L144 59 C148 55 151 55 154 58 C158 61 156 65 152 69 L128 97
+            C133 93 138 94 141 98 C143 101 143 103 141 107
+            C145 105 149 107 150 111 C152 114 150 118 147 120
+            C151 120 151 125 148 129 L129 145 C123 150 116 152 109 152
+            L101 163 Z"/>
+          <path class="crease" d="M102 99 L99 110 C103 111 108 114 111 119
+            M140 105 L130 114 C127 117 124 116 123 114
+            M147 119 L137 127 C134 129 131 129 130 126"/>
+          <path class="cuff" d="M67 140 L106 157 L100 171 L60 154 Z"/>
+          <path class="cuff-seam" d="M68 151 L96 163"/>
+        </g>
+      </svg>
+      <p>Pointing to three places</p>
+    </div>
+  </div>
+  <div class="shared-intent"><span>Enumeration</span></div>
+  <figcaption>Different movements can express the same intent.</figcaption>
+</figure></div>
+</div>
+</section><section class="section hero is-light" id="abstract">
+<div class="container is-max-desktop">
+<div class="columns is-centered has-text-centered">
+<div class="column is-four-fifths"><h2 class="title is-3 has-text-centered">Abstract</h2><div class="content has-text-justified"><p>We propose semantic motion anchors, natural-language abstractions of gesture motion capturing physical form and communicative intent. On BEAT2, using these descriptions helped the model retrieve gestures that better matched the speaker’s intent.</p><details class="full-abstract"><summary>Read the full abstract</summary><p>Learning a shared representation between spoken text and gesture is central to co-speech gesture retrieval, synthesis, and understanding, but remains challenging for semantically meaningful gestures whose communicative intent is not captured by motion alone. Direct contrastive alignment between transcripts and continuous motion embeddings often overemphasizes low-level kinematics and misses the symbolic content of semantic gestures. We propose semantic motion anchors, natural-language abstractions of gesture motion capturing physical form and communicative intent. Our method discretizes 3D gestures into body-hand motion primitives, verbalizes them into structured descriptions, and grounds them in the transcript to provide auxiliary contrastive supervision. On BEAT2, our method improves text-to-gesture R@1 by 8.2% over a direct text-motion baseline and outperforms prior retrieval approaches on text to gesture and gesture to text retrieval directions. Beyond aggregate retrieval metrics, semantic motion anchor supervision helps retrieve gestures that are semantically meaningful for the spoken query, rather than defaulting to generic motion patterns. A downstream retrieval-augmented gesture generation study showed that users significantly preferred gestures retrieved by our approach over a retrieval-augmented generation baseline, demonstrating that semantically grounded retrieval translates to gestures that better convey communicative intent in downstream generation.</p></details></div></div>
+</div>
+</div>
+</section><section class="section hero is-small" id="method">
+<div class="container is-max-desktop">
+<div class="columns is-centered">
+<div class="column is-full"><h2 class="title is-3 has-text-centered">Method overview</h2><p class="method-summary">We introduce semantic motion anchors for text-gesture retrieval, representing co-speech gestures through natural-language descriptions of form and intent.</p><figure class="framework"><a aria-label="Open Figure 1 at full size" href="images/framework.png"><img alt="Top: motion and text encoders aligned in a shared space. Bottom: motion tokens, a physical description and the transcript yield an anchor for training." height="985" loading="lazy" src="images/framework.png" width="2006"/></a></figure><p class="crosslink">How are gestures annotated? <a href="dataset.html#construction">Explore SEMANTIX construction, statistics and examples →</a></p></div>
+</div>
+</div>
+</section><section class="section hero is-light" id="results">
+<div class="container is-max-desktop">
+<div class="columns is-centered has-text-centered">
+<div class="column is-four-fifths"><h2 class="title is-3 has-text-centered">Retrieval results</h2><p class="tagline">On BEAT2, semantic motion anchors raise text-to-gesture Recall@1 from <strong><span class="metric-value">39.1%</span> to <span class="metric-value">42.3%</span></strong> over direct text–motion alignment, an 8.2% relative improvement.</p><details class="research-disclosure" id="retrieval-scores"><summary>Compare exact retrieval scores</summary><div class="research-detail-body"><p>Each query ranks 856 candidates. Recall@K is the percentage of queries whose paired match appears in the first K results. MRR measures the reciprocal rank of that match, averaged across queries and shown on a 0–100 scale. Higher is better for all four metrics.</p><fieldset class="direction-picker"><legend>Retrieval direction</legend><input aria-controls="direction-tables" checked="" class="direction-choice" id="dir-text-first" name="result-direction" type="radio"/><label for="dir-text-first">Text → Gesture</label><input aria-controls="direction-tables" class="direction-choice" id="dir-gesture-first" name="result-direction" type="radio"/><label for="dir-gesture-first">Gesture → Text</label><div id="direction-tables"><div aria-label="Text-to-gesture scores" class="result-table-wrap text-first" role="region" tabindex="0"><table class="metric-table"><caption>Text-to-gesture retrieval · BEAT2</caption><thead><tr><th scope="col">Method</th><th scope="col">R@1</th><th scope="col">R@5</th><th scope="col">R@10</th><th scope="col">MRR</th></tr></thead><tbody><tr><th scope="row">GestureDiffuCLIP</th><td>33.8</td><td>57.5</td><td>67.2</td><td>45.1</td></tr><tr><th scope="row">TMR</th><td>39.1</td><td>58.7</td><td>66.4</td><td>48.6</td></tr><tr><th scope="row">JEGAL</th><td>39.3</td><td>59.3</td><td>66.8</td><td>48.9</td></tr><tr><th scope="row">Text Contrastive</th><td>39.1</td><td>58.7</td><td>66.3</td><td>48.5</td></tr><tr class="our-method"><th scope="row">Semantic Motion Anchors (Ours)</th><td>42.3<sup>†</sup></td><td>62.5<sup>†</sup></td><td>69.5<sup>**</sup></td><td>51.9<sup>†</sup></td></tr></tbody></table></div><div aria-label="Gesture-to-text scores" class="result-table-wrap gesture-first" role="region" tabindex="0"><table class="metric-table"><caption>Gesture-to-text retrieval · BEAT2</caption><thead><tr><th scope="col">Method</th><th scope="col">R@1</th><th scope="col">R@5</th><th scope="col">R@10</th><th scope="col">MRR</th></tr></thead><tbody><tr><th scope="row">GestureDiffuCLIP</th><td>32.3</td><td>57.4</td><td>66.6</td><td>44.0</td></tr><tr><th scope="row">TMR</th><td>37.4</td><td>57.7</td><td>65.7</td><td>47.0</td></tr><tr><th scope="row">JEGAL</th><td>36.6</td><td>58.4</td><td>66.6</td><td>47.0</td></tr><tr><th scope="row">Text Contrastive</th><td>37.2</td><td>57.5</td><td>65.4</td><td>47.0</td></tr><tr class="our-method"><th scope="row">Semantic Motion Anchors (Ours)</th><td>41.8<sup>†</sup></td><td>62.0<sup>†</sup></td><td>68.9<sup>†</sup></td><td>51.4<sup>†</sup></td></tr></tbody></table></div></div></fieldset><p class="metric-key">Compared with Text Contrastive (paired t-test): <b>**</b> p &lt; 0.01; <b>†</b> p &lt; 0.001.</p></div></details><details class="research-disclosure" id="intent-match-rates"><summary>Explore match rates by gesture intent</summary><div class="research-detail-body"><p>A retrieved clip can differ from the paired clip but express the same intent. This measure counts how often the first retrieved clip has the same intent label as the paired gesture.</p><div aria-label="Match rates by intent" class="result-table-wrap" role="region" tabindex="0"><table class="metric-table match-table"><caption>Top-1 semantic label match rate (%) · BEAT2</caption><thead><tr><th scope="col">Intent</th><th scope="col">Clips</th><th scope="col">Ours</th><th scope="col">Text contrastive</th><th scope="col">Random anchor</th></tr></thead><tbody><tr><th scope="row">Emphasis</th><td>250</td><td>57.2</td><td>52.8</td><td>57.2</td></tr><tr><th scope="row">Discourse</th><td>227</td><td>62.1</td><td>57.7</td><td>61.7</td></tr><tr><th scope="row">Other-reference</th><td>111</td><td>59.5</td><td>56.8</td><td>58.6</td></tr><tr><th scope="row">Self-reference</th><td>92</td><td>52.2</td><td>52.2</td><td>44.6</td></tr><tr><th scope="row">Symbolise</th><td>68</td><td>48.5</td><td>44.1</td><td>44.1</td></tr><tr><th scope="row">Contrast</th><td>24</td><td>50.0</td><td>41.7</td><td>50.0</td></tr><tr><th scope="row">Emotion</th><td>16</td><td>56.2</td><td>43.8</td><td>50.0</td></tr><tr><th scope="row">Uncertainty</th><td>15</td><td>66.7</td><td>53.3</td><td>60.0</td></tr><tr><th scope="row">Temporal reference</th><td>12</td><td>50.0</td><td>33.3</td><td>50.0</td></tr><tr><th scope="row">Quantification</th><td>11</td><td>45.5</td><td>27.3</td><td>27.3</td></tr><tr><th scope="row">Negation</th><td>10</td><td>50.0</td><td>60.0</td><td>50.0</td></tr><tr><th scope="row">Relativity</th><td>9</td><td>66.7</td><td>55.6</td><td>77.8</td></tr><tr><th scope="row">Enumeration</th><td>6</td><td>33.3</td><td>33.3</td><td>33.3</td></tr><tr><th scope="row">Progression</th><td>3</td><td>0.0</td><td>0.0</td><td>0.0</td></tr><tr><th scope="row">Listing</th><td>2</td><td>50.0</td><td>50.0</td><td>50.0</td></tr></tbody><tfoot><tr><th scope="row">Overall</th><td>856</td><td>56.9</td><td>52.6</td><td>55.1</td></tr></tfoot></table></div></div></details></div>
+</div>
+</div>
+</section><section class="section hero is-small" id="qualitative">
+<div class="container is-max-desktop">
+<div class="columns is-centered">
+<div class="column is-full"><h2 class="title is-3 has-text-centered">Qualitative retrieval examples</h2><div id="examples-paper"><article class="paper-case">
+<header><p class="example-type">Example 1 · Emotion</p>
+<h3 class="spoken-line" id="paper-query-1">“…I miss my relatives and friends the most, I missed the feelings that I’m at home …”</h3></header>
+<div aria-labelledby="paper-query-1" class="method-album" data-carousel="" data-item-name="Card" role="group">
+<div class="method-track"><div class="example-slide method-card" data-label="Ground truth (GT)">
+<div class="clip-slot">Video pending</div>
+<div class="method-caption"><h4>Ground truth (GT)</h4><p>Both hands rise from waist to chest and spread outward, conveying a sense of home.</p></div></div><div class="example-slide method-card" data-label="Text contrastive">
+<div class="clip-slot">Video pending</div>
+<div class="method-caption"><h4>Text contrastive</h4><p>One hand moves down and sideways as if drawing attention to a detail.</p></div></div><div class="example-slide method-card" data-label="Random anchor">
+<div class="clip-slot">Video pending</div>
+<div class="method-caption"><h4>Random anchor</h4><p>Both hands rise, open outward and lower, as if laying out a sequence.</p></div></div><div class="example-slide method-card" data-label="Semantic Motion Anchors (Ours)">
+<div class="clip-slot">Video pending</div>
+<div class="method-caption"><h4>Semantic Motion Anchors (Ours)</h4><p>Open palms hover near the chest, conveying longing for home.</p></div></div></div>
+<div class="examples-pager" hidden="">
+<button aria-label="Previous card for Emotion" data-step="-1" type="button"><span aria-hidden="true">←</span></button>
+<div class="album-progress"><button aria-label="Show Ground truth (GT)" class="album-dot" data-to="0" title="Ground truth (GT)" type="button"></button><button aria-label="Show Text contrastive" class="album-dot" data-to="1" title="Text contrastive" type="button"></button><button aria-label="Show Random anchor" class="album-dot" data-to="2" title="Random anchor" type="button"></button><button aria-label="Show Semantic Motion Anchors (Ours)" class="album-dot" data-to="3" title="Semantic Motion Anchors (Ours)" type="button"></button><span aria-hidden="true" class="examples-count">1 / 4</span></div>
+<button aria-label="Next card for Emotion" data-step="1" type="button"><span aria-hidden="true">→</span></button>
+</div>
+<span aria-atomic="true" aria-live="polite" class="visually-hidden examples-status"></span></div></article><article class="paper-case">
+<header><p class="example-type">Example 2 · Self-reference</p>
+<h3 class="spoken-line" id="paper-query-2">“…when I'm free I like to listen to music or watch documentary movies…”</h3></header>
+<div aria-labelledby="paper-query-2" class="method-album" data-carousel="" data-item-name="Card" role="group">
+<div class="method-track"><div class="example-slide method-card" data-label="Ground truth (GT)">
+<div class="clip-slot">Video pending</div>
+<div class="method-caption"><h4>Ground truth (GT)</h4><p>A small outward spread near the waist introduces the speaker’s free-time activities.</p></div></div><div class="example-slide method-card" data-label="Text contrastive / Random anchor">
+<div class="clip-slot">Video pending</div>
+<div class="method-caption"><h4>Text contrastive / Random anchor</h4><p>A small beat marks the rhythm of a habitual activity.</p></div></div><div class="example-slide method-card" data-label="Semantic Motion Anchors (Ours)">
+<div class="clip-slot">Video pending</div>
+<div class="method-caption"><h4>Semantic Motion Anchors (Ours)</h4><p>One hand opens toward the speaker, referring to time spent alone.</p></div></div></div>
+<div class="examples-pager" hidden="">
+<button aria-label="Previous card for Self-reference" data-step="-1" type="button"><span aria-hidden="true">←</span></button>
+<div class="album-progress"><button aria-label="Show Ground truth (GT)" class="album-dot" data-to="0" title="Ground truth (GT)" type="button"></button><button aria-label="Show Text contrastive / Random anchor" class="album-dot" data-to="1" title="Text contrastive / Random anchor" type="button"></button><button aria-label="Show Semantic Motion Anchors (Ours)" class="album-dot" data-to="2" title="Semantic Motion Anchors (Ours)" type="button"></button><span aria-hidden="true" class="examples-count">1 / 3</span></div>
+<button aria-label="Next card for Self-reference" data-step="1" type="button"><span aria-hidden="true">→</span></button>
+</div>
+<span aria-atomic="true" aria-live="polite" class="visually-hidden examples-status"></span></div></article></div><p class="crosslink"><a href="dataset.html#examples">View annotated clips in SEMANTIX →</a></p></div>
+</div>
+</div>
+</section><section class="section hero is-light" id="application">
+<div class="container is-max-desktop">
+<div class="columns is-centered has-text-centered">
+<div class="column is-four-fifths"><h2 class="title is-3 has-text-centered">Downstream application: Co-speech gesture generation</h2><p class="tagline">Participants preferred gestures retrieved by our method <strong class="metric-value">72.2%</strong> of the time, compared with <strong class="metric-value">27.8%</strong> for RAG-Gesture.</p><div class="study-gallery" id="comparisons">
+
+<div class="video-pair"><figure class="method-video"><figcaption>RAG-Gesture</figcaption><video aria-label="RAG-Gesture, retrieved gesture" controls="" height="960" id="video-baseline" playsinline="" poster="media/retrieved/01-baseline.jpg" preload="metadata" src="media/retrieved/01-baseline.mp4" width="640">Your browser does not support embedded video.</video></figure><figure class="method-video"><figcaption>Semantic Motion Anchors</figcaption><video aria-label="Semantic Motion Anchors, retrieved gesture" controls="" height="960" id="video-anchors" playsinline="" poster="media/retrieved/01-anchors.jpg" preload="metadata" src="media/retrieved/01-anchors.mp4" width="640">Your browser does not support embedded video.</video></figure></div>
+<div class="gallery-controls" hidden=""><button aria-label="Previous comparison" id="pair-prev" type="button">←</button><label class="visually-hidden" for="pair-select">Comparison example</label><select id="pair-select"><option value="01">Example 01 of 13</option><option value="02">Example 02 of 13</option><option value="03">Example 03 of 13</option><option value="04">Example 04 of 13</option><option value="05">Example 05 of 13</option><option value="06">Example 06 of 13</option><option value="07">Example 07 of 13</option><option value="08">Example 08 of 13</option><option value="09">Example 09 of 13</option><option value="10">Example 10 of 13</option><option value="11">Example 11 of 13</option><option value="12">Example 12 of 13</option><option value="13">Example 13 of 13</option></select><button aria-label="Next comparison" id="pair-next" type="button">→</button><button class="play-pair" id="pair-play" type="button">Play both</button></div>
+<p class="visually-hidden" id="pair-status" role="status"></p>
+<noscript><p>More retrieved gestures: 02 (<a href="media/retrieved/02-baseline.mp4">RAG-Gesture</a>,
+            <a href="media/retrieved/02-anchors.mp4">Ours</a>) · 03 (<a href="media/retrieved/03-baseline.mp4">RAG-Gesture</a>,
+            <a href="media/retrieved/03-anchors.mp4">Ours</a>) · 04 (<a href="media/retrieved/04-baseline.mp4">RAG-Gesture</a>,
+            <a href="media/retrieved/04-anchors.mp4">Ours</a>) · 05 (<a href="media/retrieved/05-baseline.mp4">RAG-Gesture</a>,
+            <a href="media/retrieved/05-anchors.mp4">Ours</a>) · 06 (<a href="media/retrieved/06-baseline.mp4">RAG-Gesture</a>,
+            <a href="media/retrieved/06-anchors.mp4">Ours</a>) · 07 (<a href="media/retrieved/07-baseline.mp4">RAG-Gesture</a>,
+            <a href="media/retrieved/07-anchors.mp4">Ours</a>) · 08 (<a href="media/retrieved/08-baseline.mp4">RAG-Gesture</a>,
+            <a href="media/retrieved/08-anchors.mp4">Ours</a>) · 09 (<a href="media/retrieved/09-baseline.mp4">RAG-Gesture</a>,
+            <a href="media/retrieved/09-anchors.mp4">Ours</a>) · 10 (<a href="media/retrieved/10-baseline.mp4">RAG-Gesture</a>,
+            <a href="media/retrieved/10-anchors.mp4">Ours</a>) · 11 (<a href="media/retrieved/11-baseline.mp4">RAG-Gesture</a>,
+            <a href="media/retrieved/11-anchors.mp4">Ours</a>) · 12 (<a href="media/retrieved/12-baseline.mp4">RAG-Gesture</a>,
+            <a href="media/retrieved/12-anchors.mp4">Ours</a>) · 13 (<a href="media/retrieved/13-baseline.mp4">RAG-Gesture</a>,
+            <a href="media/retrieved/13-anchors.mp4">Ours</a>)</p></noscript><details class="research-disclosure" id="generation-demo">
+<summary>View generation demo</summary><div class="research-detail-body">
+<div class="video-pair"><figure class="method-video"><figcaption>RAG-Gesture</figcaption><video aria-label="RAG-Gesture, injected retrieval on the left and generation on the right" controls="" height="960" id="demo-video-baseline" playsinline="" poster="media/01-baseline.jpg" preload="none" src="media/01-baseline.mp4" width="1280">Your browser does not support embedded video.</video></figure><figure class="method-video"><figcaption>Semantic Motion Anchors</figcaption><video aria-label="Semantic Motion Anchors, injected retrieval on the left and generation on the right" controls="" height="960" id="demo-video-anchors" playsinline="" poster="media/01-anchors.jpg" preload="none" src="media/01-anchors.mp4" width="1280">Your browser does not support embedded video.</video></figure></div><div class="gallery-controls" hidden=""><button class="play-pair" id="demo-play" type="button">Play both</button></div>
+<noscript><p>More comparisons: <span>02 (<a href="media/02-baseline.mp4">RAG-Gesture</a>, <a href="media/02-anchors.mp4">Semantic Motion Anchors</a>)</span> · <span>03 (<a href="media/03-baseline.mp4">RAG-Gesture</a>, <a href="media/03-anchors.mp4">Semantic Motion Anchors</a>)</span> · <span>04 (<a href="media/04-baseline.mp4">RAG-Gesture</a>, <a href="media/04-anchors.mp4">Semantic Motion Anchors</a>)</span> · <span>05 (<a href="media/05-baseline.mp4">RAG-Gesture</a>, <a href="media/05-anchors.mp4">Semantic Motion Anchors</a>)</span> · <span>06 (<a href="media/06-baseline.mp4">RAG-Gesture</a>, <a href="media/06-anchors.mp4">Semantic Motion Anchors</a>)</span> · <span>07 (<a href="media/07-baseline.mp4">RAG-Gesture</a>, <a href="media/07-anchors.mp4">Semantic Motion Anchors</a>)</span> · <span>08 (<a href="media/08-baseline.mp4">RAG-Gesture</a>, <a href="media/08-anchors.mp4">Semantic Motion Anchors</a>)</span> · <span>09 (<a href="media/09-baseline.mp4">RAG-Gesture</a>, <a href="media/09-anchors.mp4">Semantic Motion Anchors</a>)</span> · <span>10 (<a href="media/10-baseline.mp4">RAG-Gesture</a>, <a href="media/10-anchors.mp4">Semantic Motion Anchors</a>)</span> · <span>11 (<a href="media/11-baseline.mp4">RAG-Gesture</a>, <a href="media/11-anchors.mp4">Semantic Motion Anchors</a>)</span> · <span>12 (<a href="media/12-baseline.mp4">RAG-Gesture</a>, <a href="media/12-anchors.mp4">Semantic Motion Anchors</a>)</span> · <span>13 (<a href="media/13-baseline.mp4">RAG-Gesture</a>, <a href="media/13-anchors.mp4">Semantic Motion Anchors</a>)</span></p></noscript></div></details></div><details class="research-disclosure" id="study-design"><summary>How did participants compare the gestures?</summary><div class="research-detail-body"><p>Each of the 32 participants made 10 forced choices between paired gesture animations. For the same spoken query and retrieval database, participants compared the gesture retrieved by RAG-Gesture with the gesture retrieved using semantic motion anchors.</p></div></details></div>
+</div>
+</div>
+</section><section class="section" id="citation">
+<div class="container is-max-desktop content">
+<div class="bibtex-header">
+<h2 class="title">BibTeX</h2>
+<button class="copy-bibtex-btn" data-copy="bibtex" title="Copy BibTeX to clipboard">Copy BibTeX</button>
+</div>
+<pre id="bibtex-code"><code id="bibtex">@inproceedings{suresh2026semantic,
+  title = {Semantic Motion Anchors: Bridging Motion and Meaning in Co-Speech Gestures},
+  author = {Varsha Suresh and Mohammad Mahdi Abootorabi and Mohamed Salman and M. Hamza Mughal and Christian Theobalt and Ashwin Ram and J{\"u}rgen Steimle and Vera Demberg},
+  booktitle = {Proceedings of the 40th Annual Conference on Neural Information Processing Systems (NeurIPS'26)},
+  year = {2026},
+  url = {https://arxiv.org/pdf/2605.30608}
+}</code></pre><p class="note" id="copy-status" role="status"></p>
+</div>
+</section><section class="section hero is-small is-light" id="explore-more">
+<div class="container is-max-desktop">
+<div class="columns is-centered">
+<div class="column is-full"><h2 class="title is-3 has-text-centered">Explore more</h2><p class="section-intro">More publications and datasets from Varsha Suresh and collaborators.</p><div class="publication-grid">
+<article aria-labelledby="pub-suresh2026motion" class="publication-card" data-publication="suresh2026motion">
+<p class="publication-meta">MINT Workshop @ EMNLP <time datetime="2026">2026</time></p>
+<h3 id="pub-suresh2026motion">Do Motion Tokenizers for Co-Speech Gesture Generation Encode Gesture Semantics?</h3>
+<p class="publication-authors">Varsha Suresh · Divij Jain · Jia Liu · M Hamza Mughal · Vera Demberg</p>
+<a aria-label="Paper: Do Motion Tokenizers for Co-Speech Gesture Generation Encode Gesture Semantics?" class="publication-link" href="https://aclanthology.org/2026.mint-1.11/" rel="noopener" target="_blank">Paper <span aria-hidden="true">↗</span></a>
+</article>
+<article aria-labelledby="pub-suresh2026modeling" class="publication-card" data-publication="suresh2026modeling">
+<p class="publication-meta"><time datetime="2026">2026</time><span aria-hidden="true">·</span>Findings of EACL</p>
+<h3 id="pub-suresh2026modeling">Modeling Turn-Taking with Semantically Informed Gestures</h3>
+<p class="publication-authors">Varsha Suresh · M Hamza Mughal · Christian Theobalt · Vera Demberg</p>
+<a aria-label="Paper: Modeling Turn-Taking with Semantically Informed Gestures" class="publication-link" href="https://aclanthology.org/2026.findings-eacl.106/" rel="noopener" target="_blank">Paper <span aria-hidden="true">↗</span></a>
+</article>
+<article aria-labelledby="pub-suresh2025enhancing" class="publication-card" data-publication="suresh2025enhancing">
+<p class="publication-meta"><time datetime="2025">2025</time><span aria-hidden="true">·</span>ACL</p>
+<h3 id="pub-suresh2025enhancing">Enhancing Spoken Discourse Modeling in Language Models Using Gestural Cues</h3>
+<p class="publication-authors">Varsha Suresh · M Hamza Mughal · Christian Theobalt · Vera Demberg</p>
+<a aria-label="Paper: Enhancing Spoken Discourse Modeling in Language Models Using Gestural Cues" class="publication-link" href="https://aclanthology.org/2025.acl-long.886/" rel="noopener" target="_blank">Paper <span aria-hidden="true">↗</span></a>
+</article>
+<article aria-labelledby="pub-ram2025gesturecoach" class="publication-card" data-publication="ram2025gesturecoach">
+<p class="publication-meta"><time datetime="2025">2025</time><span aria-hidden="true">·</span>UIST</p>
+<h3 id="pub-ram2025gesturecoach">GestureCoach: Rehearsing for Engaging Talks with LLM-Driven Gesture Recommendations</h3>
+<p class="publication-authors">Ashwin Ram · Varsha Suresh · Artin Saberpour Abadian · Vera Demberg · Jürgen Steimle</p>
+<a aria-label="Project: GestureCoach: Rehearsing for Engaging Talks with LLM-Driven Gesture Recommendations" class="publication-link" href="https://hci.cs.uni-saarland.de/projects/gesturecoach/" rel="noopener" target="_blank">Project <span aria-hidden="true">↗</span></a>
+</article>
+</div><details class="more-publications">
+<summary><span class="more-label-closed">View 17 more publications and datasets</span><span class="more-label-open">Show fewer publications</span><span aria-hidden="true" class="more-toggle"></span></summary>
+<div class="publication-list">
+<article aria-labelledby="pub-saha2026mustreason" class="publication-row" data-publication="saha2026mustreason">
+<p class="publication-meta"><time datetime="2026">2026</time><span aria-hidden="true">·</span>LREC</p>
+<h3 id="pub-saha2026mustreason">MUStReason: A Benchmark for Diagnosing Pragmatic Reasoning in Video-LMs for Multimodal Sarcasm Detection.</h3>
+<p class="publication-authors">Anisha Saha · Varsha Suresh · Timothy Hospedales · Vera Demberg</p>
+<a aria-label="Paper: MUStReason: A Benchmark for Diagnosing Pragmatic Reasoning in Video-LMs for Multimodal Sarcasm Detection." class="publication-link" href="https://arxiv.org/abs/2510.23727" rel="noopener" target="_blank">Paper <span aria-hidden="true">↗</span></a>
+</article>
+<article aria-labelledby="pub-chan2026system" class="publication-row" data-publication="chan2026system">
+<p class="publication-meta"><time datetime="2026">2026</time><span aria-hidden="true">·</span>Findings of ACL</p>
+<h3 id="pub-chan2026system">System-Mediated Attention Imbalances Make Vision-Language Models Say Yes</h3>
+<p class="publication-authors">Tsan Tsai Chan · Varsha Suresh · Anisha Saha · Michael Hahn · Vera Demberg</p>
+<a aria-label="Paper: System-Mediated Attention Imbalances Make Vision-Language Models Say Yes" class="publication-link" href="https://aclanthology.org/2026.findings-acl.1940/" rel="noopener" target="_blank">Paper <span aria-hidden="true">↗</span></a>
+</article>
+<article aria-labelledby="pub-nakai2026generation" class="publication-row" data-publication="nakai2026generation">
+<p class="publication-meta"><time datetime="2026">2026</time><span aria-hidden="true">·</span>arXiv</p>
+<h3 id="pub-nakai2026generation">Generation-Step-Aware Framework for Cross-Modal Representation and Control in Multilingual Speech–Text Models</h3>
+<p class="publication-authors">Toshiki Nakai · Varsha Suresh · Vera Demberg</p>
+<a aria-label="Paper: Generation-Step-Aware Framework for Cross-Modal Representation and Control in Multilingual Speech–Text Models" class="publication-link" href="https://arxiv.org/abs/2601.17387" rel="noopener" target="_blank">Paper <span aria-hidden="true">↗</span></a>
+</article>
+<article aria-labelledby="pub-saha2026muphi" class="publication-row" data-publication="saha2026muphi">
+<p class="publication-meta"><time datetime="2026">2026</time><span aria-hidden="true">·</span>arXiv</p>
+<h3 id="pub-saha2026muphi">MuPHI: Learning Implicit Multimodal Harm Reasoning via Semantically Grounded Reward Optimization</h3>
+<p class="publication-authors">Anisha Saha · Varsha Suresh · Teodora Kamova · Sophia Wiedmann · Timothy Hospedales · Vera Demberg</p>
+<a aria-label="Paper · v1: MuPHI: Learning Implicit Multimodal Harm Reasoning via Semantically Grounded Reward Optimization" class="publication-link" href="https://arxiv.org/abs/2605.29951v1" rel="noopener" target="_blank">Paper · v1 <span aria-hidden="true">↗</span></a>
+</article>
+<article aria-labelledby="pub-mughal2026dnd" class="publication-row" data-publication="mughal2026dnd">
+<p class="publication-meta"><time datetime="2026">2026</time><span aria-hidden="true">·</span>v4.0<span aria-hidden="true">·</span>Edmond · Dataset</p>
+<h3 id="pub-mughal2026dnd">DnD Group Gesture Dataset</h3>
+<p class="publication-authors">Muhammad Hamza Mughal · Rishabh Dabral · Ikhsanul Habibie · Lucia Donatelli · Marc Habermann · Varsha Suresh · Vera Demberg · Christian Theobalt</p>
+<a aria-label="Dataset: DnD Group Gesture Dataset" class="publication-link" href="https://doi.org/10.17617/3.IPFYCC" rel="noopener" target="_blank">Dataset <span aria-hidden="true">↗</span></a>
+</article>
+<article aria-labelledby="pub-mukhametsharip2026pragmatch" class="publication-row" data-publication="mukhametsharip2026pragmatch">
+<p class="publication-meta"><time datetime="2026">2026</time><span aria-hidden="true">·</span>arXiv</p>
+<h3 id="pub-mukhametsharip2026pragmatch">PragMatch: Separating Pragmatic Incongruity from Cross-Modal Mismatch in Large Vision-Language Models</h3>
+<p class="publication-authors">Zhanna Mukhametsharip · Vera Demberg · Varsha Suresh</p>
+<a aria-label="Paper: PragMatch: Separating Pragmatic Incongruity from Cross-Modal Mismatch in Large Vision-Language Models" class="publication-link" href="https://arxiv.org/abs/2608.09772" rel="noopener" target="_blank">Paper <span aria-hidden="true">↗</span></a>
+</article>
+<article aria-labelledby="pub-yung2025synthetic" class="publication-row" data-publication="yung2025synthetic">
+<p class="publication-meta"><time datetime="2025">2025</time><span aria-hidden="true">·</span>SIGDial</p>
+<h3 id="pub-yung2025synthetic">Synthetic Data Augmentation for Cross-domain Implicit Discourse Relation Recognition</h3>
+<p class="publication-authors">Frances Yung · Varsha Suresh · Zaynab Reza · Mansoor Ahmad · Vera Demberg</p>
+<a aria-label="Paper: Synthetic Data Augmentation for Cross-domain Implicit Discourse Relation Recognition" class="publication-link" href="https://aclanthology.org/2025.sigdial-1.13/" rel="noopener" target="_blank">Paper <span aria-hidden="true">↗</span></a>
+</article>
+<article aria-labelledby="pub-bhoi2025hybrid" class="publication-row" data-publication="bhoi2025hybrid">
+<p class="publication-meta"><time datetime="2025">2025</time><span aria-hidden="true">·</span>ECAI</p>
+<h3 id="pub-bhoi2025hybrid">Hybrid Multi-view Approach Towards Augmenting Large Language Models for Human Activity Recognition</h3>
+<p class="publication-authors">Suman Bhoi · Varsha Suresh · Wynne Hsu · Mong Li Lee</p>
+<a aria-label="Paper: Hybrid Multi-view Approach Towards Augmenting Large Language Models for Human Activity Recognition" class="publication-link" href="https://doi.org/10.3233/FAIA250926" rel="noopener" target="_blank">Paper <span aria-hidden="true">↗</span></a>
+</article>
+<article aria-labelledby="pub-suresh2024adapter" class="publication-row" data-publication="suresh2024adapter">
+<p class="publication-meta"><time datetime="2024">2024</time><span aria-hidden="true">·</span>ICASSP</p>
+<h3 id="pub-suresh2024adapter">An Adapter-Based Unified Model for Multiple Spoken Language Processing Tasks</h3>
+<p class="publication-authors">Varsha Suresh · Salah Aït-Mokhtar · Caroline Brun · Ioan Calapodescu</p>
+<a aria-label="Paper: An Adapter-Based Unified Model for Multiple Spoken Language Processing Tasks" class="publication-link" href="https://arxiv.org/abs/2406.14747" rel="noopener" target="_blank">Paper <span aria-hidden="true">↗</span></a>
+</article>
+<article aria-labelledby="pub-suresh2023critically" class="publication-row" data-publication="suresh2023critically">
+<p class="publication-meta"><time datetime="2023">2023</time><span aria-hidden="true">·</span>arXiv</p>
+<h3 id="pub-suresh2023critically">Critically examining the Domain Generalizability of Facial Expression Recognition models</h3>
+<p class="publication-authors">Varsha Suresh · Gerard Yeo · Desmond C Ong</p>
+<a aria-label="Paper · v2: Critically examining the Domain Generalizability of Facial Expression Recognition models" class="publication-link" href="https://arxiv.org/abs/2106.15453v2" rel="noopener" target="_blank">Paper · v2 <span aria-hidden="true">↗</span></a>
+</article>
+<article aria-labelledby="pub-shi2022shape" class="publication-row" data-publication="shi2022shape">
+<p class="publication-meta"><time datetime="2022">2022</time><span aria-hidden="true">·</span>PerCom Workshops</p>
+<h3 id="pub-shi2022shape">Shape-Based Conditional Neural Field for Wrist-Worn Change-Point Detection</h3>
+<p class="publication-authors">Yuang Shi · Varsha Suresh · Wei Tsang Ooi</p>
+<a aria-label="Code: Shape-Based Conditional Neural Field for Wrist-Worn Change-Point Detection" class="publication-link" href="https://github.com/Shiyuang-scu/ShapeCNF" rel="noopener" target="_blank">Code <span aria-hidden="true">↗</span></a>
+</article>
+<article aria-labelledby="pub-suresh2022using" class="publication-row" data-publication="suresh2022using">
+<p class="publication-meta"><time datetime="2022">2022</time><span aria-hidden="true">·</span>ACII</p>
+<h3 id="pub-suresh2022using">Using Positive Matching Contrastive Loss with Facial Action Units to mitigate bias in Facial Expression Recognition</h3>
+<p class="publication-authors">Varsha Suresh · Desmond C Ong</p>
+<a aria-label="Paper: Using Positive Matching Contrastive Loss with Facial Action Units to mitigate bias in Facial Expression Recognition" class="publication-link" href="https://arxiv.org/abs/2303.04896" rel="noopener" target="_blank">Paper <span aria-hidden="true">↗</span></a>
+</article>
+<article aria-labelledby="pub-suresh2022context" class="publication-row" data-publication="suresh2022context">
+<p class="publication-meta"><time datetime="2022">2022</time><span aria-hidden="true">·</span>ACII Workshops and Demos</p>
+<h3 id="pub-suresh2022context">Context-Dependent Deep Learning for Affective Computing</h3>
+<p class="publication-authors">Varsha Suresh</p>
+<a aria-label="Conference program: Context-Dependent Deep Learning for Affective Computing" class="publication-link" href="https://acii-conf.net/2022/attend/program/doctoral-consortium/" rel="noopener" target="_blank">Conference program <span aria-hidden="true">↗</span></a>
+</article>
+<article aria-labelledby="pub-suresh2021using" class="publication-row" data-publication="suresh2021using">
+<p class="publication-meta"><time datetime="2021">2021</time><span aria-hidden="true">·</span>ACII</p>
+<h3 id="pub-suresh2021using">Using knowledge-embedded attention to augment pre-trained language models for fine-grained emotion recognition</h3>
+<p class="publication-authors">Varsha Suresh · Desmond C Ong</p>
+<a aria-label="Paper: Using knowledge-embedded attention to augment pre-trained language models for fine-grained emotion recognition" class="publication-link" href="https://arxiv.org/abs/2108.00194" rel="noopener" target="_blank">Paper <span aria-hidden="true">↗</span></a>
+</article>
+<article aria-labelledby="pub-kong2021systematic" class="publication-row" data-publication="kong2021systematic">
+<p class="publication-meta"><time datetime="2021">2021</time><span aria-hidden="true">·</span>arXiv</p>
+<h3 id="pub-kong2021systematic">A systematic evaluation of domain adaptation in facial expression recognition</h3>
+<p class="publication-authors">Yan San Kong · Varsha Suresh · Jonathan Soh · Desmond C Ong</p>
+<a aria-label="Paper · v1: A systematic evaluation of domain adaptation in facial expression recognition" class="publication-link" href="https://arxiv.org/abs/2106.15453v1" rel="noopener" target="_blank">Paper · v1 <span aria-hidden="true">↗</span></a>
+</article>
+<article aria-labelledby="pub-suresh2021not" class="publication-row" data-publication="suresh2021not">
+<p class="publication-meta"><time datetime="2021">2021</time><span aria-hidden="true">·</span>EMNLP</p>
+<h3 id="pub-suresh2021not">Not all negatives are equal: Label-aware contrastive loss for fine-grained text classification</h3>
+<p class="publication-authors">Varsha Suresh · Desmond C Ong</p>
+<a aria-label="Paper: Not all negatives are equal: Label-aware contrastive loss for fine-grained text classification" class="publication-link" href="https://aclanthology.org/2021.emnlp-main.359/" rel="noopener" target="_blank">Paper <span aria-hidden="true">↗</span></a>
+</article>
+<article aria-labelledby="pub-shree2016novel" class="publication-row" data-publication="shree2016novel">
+<p class="publication-meta"><time datetime="2016">2016</time><span aria-hidden="true">·</span>INDICON</p>
+<h3 id="pub-shree2016novel">A novel technique for identifying attentional selection in a dichotic environment</h3>
+<p class="publication-authors">Priya Shree · Piyush Swami · Varsha Suresh · Tapan Kumar Gandhi</p>
+<a aria-label="Publisher: A novel technique for identifying attentional selection in a dichotic environment" class="publication-link" href="https://doi.org/10.1109/INDICON.2016.7838885" rel="noopener" target="_blank">Publisher <span aria-hidden="true">↗</span></a>
+</article>
+</div>
+</details></div>
+</div>
+</div>
+</section></main><footer class="footer paper-footer"><div class="container is-max-desktop has-text-centered"><nav aria-label="Project pages"><a href="index.html">Semantic Motion Anchors</a> · <a href="dataset.html">SEMANTIX</a> · <a href="index.html#citation">Citation</a></nav><div aria-label="Institution logos" class="institution-logos">
+<img alt="Max Planck Institute for Informatics" height="48" src="images/logos/mpi-inf.png" width="160"/>
+<img alt="Saarland Informatics Campus" height="48" src="images/logos/sic-logo.webp" width="160"/>
+</div></div></footer></body></html>
