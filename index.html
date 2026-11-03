@@ -1,4 +1,186 @@
-<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Semantic Motion Anchors: Bridging Motion and Meaning in Co-Speech Gestures</title><meta name="description" content="Semantic Motion Anchors: paper, qualitative retrieval examples, gesture generation videos and SEMANTIX."><link rel="icon" href="images/logos/mpi_favicon.png"><link rel="stylesheet" href="css/bulma.min.css"><link rel="stylesheet" href="css/mustreason.css"><link rel="stylesheet" href="css/research-flow.css?v=result-details-1"><script defer src="js/project.js"></script><script defer src="js/comparisons.js?v=study-demo"></script><link rel="stylesheet" href="css/local-gallery.css?v=result-numbers"><script defer src="js/local-gallery.js?v=result-numbers"></script><link rel="stylesheet" href="css/motivation-figure.css"></head><body><a class="skip" href="#main">Skip to content</a><main id="main"><section class="hero">
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Semantic Motion Anchors: Bridging Motion and Meaning in Co-Speech Gestures</title><meta name="description" content="Semantic Motion Anchors: paper, qualitative retrieval examples, gesture generation videos and SEMANTIX."><link rel="icon" href="images/logos/mpi_favicon.png"><link rel="stylesheet" href="css/bulma.min.css"><link rel="stylesheet" href="css/mustreason.css"><link rel="stylesheet" href="css/research-flow.css?v=result-details-1"><script defer src="js/project.js"></script><style>[data-carousel] [hidden], #comparisons [hidden] { display: none !important; }
+.examples-panel {
+  min-width: 0; margin: .75rem auto; text-align: left; border: 1px solid #d9e3ef;
+  border-radius: 14px; background: white; overflow: hidden;
+}
+.examples-bar {
+  display: flex; justify-content: space-between; align-items: center; gap: .75rem;
+  padding: .5rem clamp(.85rem, 2.6vw, 1.5rem); background: #f4f7fc; border-bottom: 1px solid #dce5ef;
+}
+.examples-series, .example-type {
+  color: #4a617a; font-size: .8rem; font-weight: 650; line-height: 1.4;
+}
+.examples-series { margin: 0; }
+.examples-pager { display: flex; align-items: center; gap: .3rem; }
+.examples-pager button {
+  font: inherit; cursor: pointer;
+  width: 44px; height: 44px; border-radius: 50%; font-size: 1.3rem;
+  background: white; border: 1px solid #cfdef1; color: var(--primary-color); line-height: 1;
+}
+.examples-pager button:hover { background: #e6efff; color: #184dba; }
+.examples-panel button:focus-visible { outline: 2px solid #2563eb; outline-offset: 2px; }
+.examples-count { min-width: 3rem; text-align: center; font-size: .9rem; font-variant-numeric: tabular-nums; color: var(--ink); }
+.example-slide { padding: clamp(.9rem,2.7vw,1.55rem); min-width: 0; }
+.example-slide + .example-slide:not([hidden]) { border-top: 1px solid #e3ebf4; }
+.example-slide[hidden] + .example-slide:not([hidden]) { border-top: 0; }
+.example-type { text-transform: uppercase; letter-spacing: .075em; margin: 0 0 .3rem; }
+.example-type span { color: #7893ae; }
+.spoken-line { color: #202e42; font-size: clamp(1.28rem,2.6vw,1.67rem); font-weight: 550; line-height: 1.28; margin: 0 0 1rem; }
+.example-slide .sample-grid { grid-template-columns: minmax(0,1fr); gap: 1rem; padding: 0; }
+.example-slide figure { margin: 0; }
+.example-slide video { display: block; width: 100%; aspect-ratio: 16 / 9; object-fit: contain; border-radius: .6rem; background: #152034; }
+.example-slide figcaption, .example-slide .note { margin: .45rem 0; color: var(--soft); font-size: .81rem; line-height: 1.5; }
+.clip-controls:not([hidden]) {
+  display: inline-grid; grid-template-columns: repeat(2, minmax(0, 1fr));
+  max-width: 100%; gap: .4rem; margin-top: .65rem;
+}
+.clip-controls .segment {
+  min-height: 2.5rem; padding: .4rem; border-radius: .55rem;
+  border-color: #bacce6; color: var(--primary-hover); font-weight: 600;
+}
+.clip-controls .segment:hover { background: #eff5ff; }
+.clip-controls .segment[aria-pressed="true"] {
+  background: var(--primary-color); border-color: var(--primary-color); color: white;
+}
+.example-slide h4 { font-size: 1rem; font-weight: 650; color: var(--ink); margin: 0 0 .25rem; }
+.example-slide .sample-grid p { overflow-wrap: anywhere; }
+.example-slide mark { background: #fff0bf; color: inherit; }
+.description-heading { display: flex; align-items: center; gap: .4rem; margin: .95rem 0 .4rem; }
+.description-heading h4 { margin: 0 .15rem 0 0; line-height: 1.25; }
+.description-heading .key { border-radius: .3rem; font-size: .75rem; line-height: 1.3; text-align: center; }
+.examples-panel > .sample { margin: 0; border: 0; border-radius: 0; }
+#examples-paper { max-width: 49rem; margin-inline: auto; text-align: left; }
+.paper-case + .paper-case { margin-top: 1.6rem; padding-top: 1.4rem; border-top: 1px solid var(--line); }
+.paper-case .spoken-line { margin-bottom: .85rem; font-size: clamp(1.12rem, 2.3vw, 1.45rem); }
+.method-track { min-width: 0; overflow: hidden; border-radius: .75rem; }
+.method-track .method-card {
+  display: grid; grid-template-columns: minmax(8rem, .65fr) minmax(0, 1fr);
+  align-items: center; gap: clamp(.75rem, 2.3vw, 1.4rem); padding: .9rem;
+  border: 1px solid var(--line); border-radius: .75rem; background: #fff; color: var(--ink);
+}
+.method-track .method-card + .method-card:not([hidden]) { border-top: 1px solid var(--line); }
+.method-track .method-card:last-child { background: #f4f8ff; border-color: #c5d9f7; }
+.method-caption h4 { font-size: 1rem; line-height: 1.35; margin: 0 0 .3rem; font-weight: 650; }
+.method-caption p { margin: 0; font-size: .96rem; line-height: 1.5; }
+.clip-slot {
+  display: grid; place-items: center; width: 100%; aspect-ratio: 16 / 9;
+  border: 1px dashed #b7c6d5; border-radius: .35rem;
+  color: var(--soft); background: #f8fafc; font-size: .8rem;
+}
+.method-album.is-ready {
+  --edge: 13%; --neighbor-shift: 24%; display: grid; grid-template-columns: minmax(0, 1fr);
+  align-items: center; isolation: isolate;
+}
+.method-album.is-ready .method-track {
+  grid-area: 1 / 1; display: grid; grid-template-columns: minmax(0, 1fr);
+  padding-block: .7rem 1rem; isolation: isolate; border-radius: 0;
+}
+.method-album.is-ready .example-slide {
+  grid-area: 1 / 1; width: calc(100% - var(--edge) - var(--edge)); justify-self: center;
+  transition: transform .34s ease, opacity .28s ease, background-color .28s ease, box-shadow .28s ease;
+}
+.method-album.is-ready .method-card { padding-inline: clamp(1.35rem, 3vw, 2rem); }
+.method-album [data-position="front"] {
+  z-index: 3; transform: translateX(0) scale(1); box-shadow: 0 5px 16px #23355024;
+}
+.method-track .example-slide:is([data-position="left"], [data-position="right"]) {
+  z-index: 1; opacity: .72; background: #e2e7ec; filter: saturate(.55);
+}
+.method-album [data-position="left"] { transform: translateX(calc(0% - var(--neighbor-shift))) scale(.85); }
+.method-album [data-position="right"] { transform: translateX(var(--neighbor-shift)) scale(.85); }
+.method-album [data-position="back"] { visibility: hidden; opacity: 0; transform: scale(.72); }
+.method-album.is-ready .examples-pager { display: contents; }
+.method-album .examples-pager [data-step] {
+  grid-area: 1 / 1; z-index: 4; display: flex; align-items: center; align-self: stretch;
+  width: calc(var(--edge) + 22px); height: auto; min-height: 44px; padding: 0;
+  border: 0; background: transparent; border-radius: 0;
+}
+.method-album [data-step="-1"] { justify-self: start; justify-content: flex-end; }
+.method-album [data-step="1"] { justify-self: end; justify-content: flex-start; }
+.method-album [data-step] span {
+  display: grid; place-items: center; width: 44px; height: 44px;
+  border-radius: 50%; border: 1px solid #cad6e2; color: #364d67;
+  background: #fffffff5; box-shadow: 0 2px 7px #21324826;
+}
+.method-album [data-step]:is(:hover, :focus-visible) span { color: var(--primary-color); border-color: #8cb2e0; }
+.album-progress { grid-area: 2 / 1; display: flex; justify-content: center; align-items: center; }
+.method-album .examples-pager .album-dot {
+  display: grid; place-items: center; width: 28px; height: 28px; border: 0; padding: 0; background: none;
+}
+.album-dot::before {
+  content: ""; width: 8px; height: 8px; border-radius: 50%; background: #b7c3cd;
+}
+.album-dot[aria-current="true"]::before { width: 10px; height: 10px; background: var(--primary-color); }
+.album-dot:hover::before { background: #527fae; }
+.method-album .examples-count { min-width: 0; margin-left: .45rem; color: var(--soft); font-size: .82rem; }
+.method-album button:focus-visible { outline: 2px solid var(--primary-color); outline-offset: 2px; }
+@media (prefers-reduced-motion: reduce) {
+  .method-album.is-ready .example-slide { transition: none; }
+}
+@media (max-width: 580px) {
+  .method-album.is-ready { --edge: 8%; --neighbor-shift: 16%; }
+  .method-album.is-ready .method-card { padding: .8rem 1.45rem; }
+  .method-track .method-card { grid-template-columns: 1fr; gap: .65rem; }
+  .method-caption { min-height: 6rem; }
+  .clip-slot { max-height: 7.5rem; }
+}
+.clip-album { margin: .75rem auto; }
+.clip-album.is-ready {
+  --edge: clamp(.6rem, 3vw, 2.25rem);
+  /* At 85% scale, each side moves inward by 7.5% of the card width. */
+  --neighbor-shift: calc(7.5% + var(--edge));
+}
+.clip-album .sample { margin: 0; padding: clamp(.4rem, 1.5vw, 1.15rem); border-radius: .75rem; }
+.clip-album.is-ready .method-track { overflow: visible; }
+.clip-album.is-ready .sample[data-position="back"] { visibility: visible; }
+.clip-album.is-ready .examples-pager [data-step] {
+  align-self: start; width: 44px; height: 44px; margin-top: calc(3.3rem + 25%);
+}
+#application > .container { width: 100%; }
+.study-album { margin-block: 1rem; }
+.study-album .study-card { text-align: left; }
+.study-card .study-example { margin: 0 0 .55rem; font-size: 1rem; font-weight: 650; color: var(--ink); }
+.study-card .video-pair { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: clamp(.4rem, 2vw, 1rem); }
+.study-card .method-video { display: grid; grid-template-rows: minmax(2.5rem, auto) 1fr; }
+.study-card .method-video figcaption { align-self: center; margin: 0; line-height: 1.25; color: var(--ink); font-size: clamp(.8rem, 1.8vw, .95rem); }
+.study-card .retrieved-pair video { aspect-ratio: 2/3; }
+.study-card .generated-pair video { aspect-ratio: 4/3; }
+.study-card .gallery-controls { margin: .6rem 0 .2rem; }
+.study-card .generation-demo { margin-top: .8rem; }
+.study-jump { display: none; }
+@media (max-width: 580px) {
+  .study-album .album-progress .album-dot, .study-album .examples-count { display: none; }
+  .study-jump { display: block; font: inherit; font-size: .9rem; color: var(--ink); border: 1px solid var(--line); border-radius: .5rem; background: white; padding: .45rem .65rem; }
+  .study-card .generation-demo > summary { padding: .65rem .55rem; font-size: .88rem; }
+  .study-card .research-detail-body { padding: .2rem .35rem .55rem; }
+}
+@media (max-width: 430px) {
+  .description-heading { gap: .3rem; }
+  .description-heading h4 { margin-right: 0; font-size: .95rem; }
+  .description-heading .key { padding: .2rem .24rem; }
+}
+#abstract .content, #method .method-summary {
+  max-width: 46rem; margin-inline: auto;
+  font: inherit; color: var(--text-primary);
+}
+#abstract .content > p, #abstract .full-abstract, #method .method-summary { text-align: left; }
+#method .method-summary { margin-bottom: 1.2rem; }
+#bibtex-code > code {
+  display: block; font-family: "Avenir Next", Avenir, system-ui, sans-serif !important;
+  font-size: 1rem; font-weight: 400; line-height: 1.65;
+  white-space: pre-wrap; overflow-wrap: anywhere;
+}
+.footer.paper-footer, .footer.dataset-footer { background: var(--background-primary); }
+#anchor-construction { padding-inline: max(1.15rem, 6vw); }
+#anchor-construction > .container { width: 100%; max-width: none; }
+#anchor-construction .column { width: 100%; }
+#anchor-construction .intro { max-width: none; text-wrap: balance; }
+#anchor-construction .flow p { max-width: 42ch; margin-inline: auto; }
+@media (min-width: 37.5rem) and (max-width: 63.99rem) {
+  #anchor-construction .flow { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+:is(#results, #application) .tagline .metric-value { color: var(--primary-color); }
+</style><link rel="stylesheet" href="css/motivation-figure.css"></head><body><a class="skip" href="#main">Skip to content</a><main id="main"><section class="hero">
 <div class="hero-body">
 <div class="container is-max-desktop">
 <div class="columns is-centered">
@@ -137,27 +319,129 @@
 </section><section class="section hero is-light" id="application">
 <div class="container is-max-desktop">
 <div class="columns is-centered has-text-centered">
-<div class="column is-four-fifths"><h2 class="title is-3 has-text-centered">Downstream application: Co-speech gesture generation</h2><p class="tagline">Participants preferred gestures retrieved by our method <strong class="metric-value">72.2%</strong> of the time, compared with <strong class="metric-value">27.8%</strong> for RAG-Gesture.</p><div class="study-gallery" id="comparisons">
-
-<div class="video-pair"><figure class="method-video"><figcaption>RAG-Gesture</figcaption><video aria-label="RAG-Gesture, retrieved gesture" controls="" height="960" id="video-baseline" playsinline="" poster="media/retrieved/01-baseline.jpg" preload="metadata" src="media/retrieved/01-baseline.mp4" width="640">Your browser does not support embedded video.</video></figure><figure class="method-video"><figcaption>Semantic Motion Anchors</figcaption><video aria-label="Semantic Motion Anchors, retrieved gesture" controls="" height="960" id="video-anchors" playsinline="" poster="media/retrieved/01-anchors.jpg" preload="metadata" src="media/retrieved/01-anchors.mp4" width="640">Your browser does not support embedded video.</video></figure></div>
-<div class="gallery-controls" hidden=""><button aria-label="Previous comparison" id="pair-prev" type="button">←</button><label class="visually-hidden" for="pair-select">Comparison example</label><select id="pair-select"><option value="01">Example 01 of 13</option><option value="02">Example 02 of 13</option><option value="03">Example 03 of 13</option><option value="04">Example 04 of 13</option><option value="05">Example 05 of 13</option><option value="06">Example 06 of 13</option><option value="07">Example 07 of 13</option><option value="08">Example 08 of 13</option><option value="09">Example 09 of 13</option><option value="10">Example 10 of 13</option><option value="11">Example 11 of 13</option><option value="12">Example 12 of 13</option><option value="13">Example 13 of 13</option></select><button aria-label="Next comparison" id="pair-next" type="button">→</button><button class="play-pair" id="pair-play" type="button">Play both</button></div>
-<p class="visually-hidden" id="pair-status" role="status"></p>
-<noscript><p>More retrieved gestures: 02 (<a href="media/retrieved/02-baseline.mp4">RAG-Gesture</a>,
-            <a href="media/retrieved/02-anchors.mp4">Ours</a>) · 03 (<a href="media/retrieved/03-baseline.mp4">RAG-Gesture</a>,
-            <a href="media/retrieved/03-anchors.mp4">Ours</a>) · 04 (<a href="media/retrieved/04-baseline.mp4">RAG-Gesture</a>,
-            <a href="media/retrieved/04-anchors.mp4">Ours</a>) · 05 (<a href="media/retrieved/05-baseline.mp4">RAG-Gesture</a>,
-            <a href="media/retrieved/05-anchors.mp4">Ours</a>) · 06 (<a href="media/retrieved/06-baseline.mp4">RAG-Gesture</a>,
-            <a href="media/retrieved/06-anchors.mp4">Ours</a>) · 07 (<a href="media/retrieved/07-baseline.mp4">RAG-Gesture</a>,
-            <a href="media/retrieved/07-anchors.mp4">Ours</a>) · 08 (<a href="media/retrieved/08-baseline.mp4">RAG-Gesture</a>,
-            <a href="media/retrieved/08-anchors.mp4">Ours</a>) · 09 (<a href="media/retrieved/09-baseline.mp4">RAG-Gesture</a>,
-            <a href="media/retrieved/09-anchors.mp4">Ours</a>) · 10 (<a href="media/retrieved/10-baseline.mp4">RAG-Gesture</a>,
-            <a href="media/retrieved/10-anchors.mp4">Ours</a>) · 11 (<a href="media/retrieved/11-baseline.mp4">RAG-Gesture</a>,
-            <a href="media/retrieved/11-anchors.mp4">Ours</a>) · 12 (<a href="media/retrieved/12-baseline.mp4">RAG-Gesture</a>,
-            <a href="media/retrieved/12-anchors.mp4">Ours</a>) · 13 (<a href="media/retrieved/13-baseline.mp4">RAG-Gesture</a>,
-            <a href="media/retrieved/13-anchors.mp4">Ours</a>)</p></noscript><details class="research-disclosure" id="generation-demo">
-<summary>View generation demo</summary><div class="research-detail-body">
-<div class="video-pair"><figure class="method-video"><figcaption>RAG-Gesture</figcaption><video aria-label="RAG-Gesture, injected retrieval on the left and generation on the right" controls="" height="960" id="demo-video-baseline" playsinline="" poster="media/01-baseline.jpg" preload="none" src="media/01-baseline.mp4" width="1280">Your browser does not support embedded video.</video></figure><figure class="method-video"><figcaption>Semantic Motion Anchors</figcaption><video aria-label="Semantic Motion Anchors, injected retrieval on the left and generation on the right" controls="" height="960" id="demo-video-anchors" playsinline="" poster="media/01-anchors.jpg" preload="none" src="media/01-anchors.mp4" width="1280">Your browser does not support embedded video.</video></figure></div><div class="gallery-controls" hidden=""><button class="play-pair" id="demo-play" type="button">Play both</button></div>
-<noscript><p>More comparisons: <span>02 (<a href="media/02-baseline.mp4">RAG-Gesture</a>, <a href="media/02-anchors.mp4">Semantic Motion Anchors</a>)</span> · <span>03 (<a href="media/03-baseline.mp4">RAG-Gesture</a>, <a href="media/03-anchors.mp4">Semantic Motion Anchors</a>)</span> · <span>04 (<a href="media/04-baseline.mp4">RAG-Gesture</a>, <a href="media/04-anchors.mp4">Semantic Motion Anchors</a>)</span> · <span>05 (<a href="media/05-baseline.mp4">RAG-Gesture</a>, <a href="media/05-anchors.mp4">Semantic Motion Anchors</a>)</span> · <span>06 (<a href="media/06-baseline.mp4">RAG-Gesture</a>, <a href="media/06-anchors.mp4">Semantic Motion Anchors</a>)</span> · <span>07 (<a href="media/07-baseline.mp4">RAG-Gesture</a>, <a href="media/07-anchors.mp4">Semantic Motion Anchors</a>)</span> · <span>08 (<a href="media/08-baseline.mp4">RAG-Gesture</a>, <a href="media/08-anchors.mp4">Semantic Motion Anchors</a>)</span> · <span>09 (<a href="media/09-baseline.mp4">RAG-Gesture</a>, <a href="media/09-anchors.mp4">Semantic Motion Anchors</a>)</span> · <span>10 (<a href="media/10-baseline.mp4">RAG-Gesture</a>, <a href="media/10-anchors.mp4">Semantic Motion Anchors</a>)</span> · <span>11 (<a href="media/11-baseline.mp4">RAG-Gesture</a>, <a href="media/11-anchors.mp4">Semantic Motion Anchors</a>)</span> · <span>12 (<a href="media/12-baseline.mp4">RAG-Gesture</a>, <a href="media/12-anchors.mp4">Semantic Motion Anchors</a>)</span> · <span>13 (<a href="media/13-baseline.mp4">RAG-Gesture</a>, <a href="media/13-anchors.mp4">Semantic Motion Anchors</a>)</span></p></noscript></div></details></div><details class="research-disclosure" id="study-design"><summary>How did participants compare the gestures?</summary><div class="research-detail-body"><p>Each of the 32 participants made 10 forced choices between paired gesture animations. For the same spoken query and retrieval database, participants compared the gesture retrieved by RAG-Gesture with the gesture retrieved using semantic motion anchors.</p></div></details></div>
+<div class="column is-four-fifths"><h2 class="title is-3 has-text-centered">Downstream application: Co-speech gesture generation</h2><p class="tagline">Participants preferred gestures retrieved by our method <strong class="metric-value">72.2%</strong> of the time, compared with <strong class="metric-value">27.8%</strong> for RAG-Gesture.</p><div aria-label="Co-speech gesture generation examples" aria-roledescription="carousel" class="method-album clip-album study-album" data-carousel="" id="comparisons" role="region"><div class="method-track"><article class="example-slide sample study-card" data-example="01">
+<h3 class="study-example">Example 01 of 13</h3><div class="study-pair retrieved-pair"><div class="video-pair"><figure class="method-video"><figcaption>RAG-Gesture</figcaption>
+<video aria-label="Example 01 of 13, RAG-Gesture, retrieved gesture" controls="" height="960" playsinline="" poster="media/retrieved/01-baseline.jpg" preload="none" src="media/retrieved/01-baseline.mp4" width="640"></video></figure><figure class="method-video"><figcaption>Semantic Motion Anchors</figcaption>
+<video aria-label="Example 01 of 13, Semantic Motion Anchors, retrieved gesture" controls="" height="960" playsinline="" poster="media/retrieved/01-anchors.jpg" preload="none" src="media/retrieved/01-anchors.mp4" width="640"></video></figure></div>
+<div class="gallery-controls" hidden=""><button aria-pressed="false" class="play-pair" type="button">Play both</button></div></div>
+<details class="research-disclosure generation-demo" id="generation-demo"><summary>View generation demo · Example 01</summary>
+<div class="research-detail-body"><div class="study-pair generated-pair"><div class="video-pair"><figure class="method-video"><figcaption>RAG-Gesture</figcaption>
+<video aria-label="Example 01 of 13, RAG-Gesture, retrieved motion on the left and generated motion on the right" controls="" data-poster="media/01-baseline.jpg" height="960" playsinline="" preload="none" src="media/01-baseline.mp4" width="1280"></video></figure><figure class="method-video"><figcaption>Semantic Motion Anchors</figcaption>
+<video aria-label="Example 01 of 13, Semantic Motion Anchors, retrieved motion on the left and generated motion on the right" controls="" data-poster="media/01-anchors.jpg" height="960" playsinline="" preload="none" src="media/01-anchors.mp4" width="1280"></video></figure></div>
+<div class="gallery-controls" hidden=""><button aria-pressed="false" class="play-pair" type="button">Play both</button></div></div></div></details></article><article class="example-slide sample study-card" data-example="02">
+<h3 class="study-example">Example 02 of 13</h3><div class="study-pair retrieved-pair"><div class="video-pair"><figure class="method-video"><figcaption>RAG-Gesture</figcaption>
+<video aria-label="Example 02 of 13, RAG-Gesture, retrieved gesture" controls="" data-poster="media/retrieved/02-baseline.jpg" height="960" playsinline="" preload="none" src="media/retrieved/02-baseline.mp4" width="640"></video></figure><figure class="method-video"><figcaption>Semantic Motion Anchors</figcaption>
+<video aria-label="Example 02 of 13, Semantic Motion Anchors, retrieved gesture" controls="" data-poster="media/retrieved/02-anchors.jpg" height="960" playsinline="" preload="none" src="media/retrieved/02-anchors.mp4" width="640"></video></figure></div>
+<div class="gallery-controls" hidden=""><button aria-pressed="false" class="play-pair" type="button">Play both</button></div></div>
+<details class="research-disclosure generation-demo" id="generation-demo-02"><summary>View generation demo · Example 02</summary>
+<div class="research-detail-body"><div class="study-pair generated-pair"><div class="video-pair"><figure class="method-video"><figcaption>RAG-Gesture</figcaption>
+<video aria-label="Example 02 of 13, RAG-Gesture, retrieved motion on the left and generated motion on the right" controls="" data-poster="media/02-baseline.jpg" height="960" playsinline="" preload="none" src="media/02-baseline.mp4" width="1280"></video></figure><figure class="method-video"><figcaption>Semantic Motion Anchors</figcaption>
+<video aria-label="Example 02 of 13, Semantic Motion Anchors, retrieved motion on the left and generated motion on the right" controls="" data-poster="media/02-anchors.jpg" height="960" playsinline="" preload="none" src="media/02-anchors.mp4" width="1280"></video></figure></div>
+<div class="gallery-controls" hidden=""><button aria-pressed="false" class="play-pair" type="button">Play both</button></div></div></div></details></article><article class="example-slide sample study-card" data-example="03">
+<h3 class="study-example">Example 03 of 13</h3><div class="study-pair retrieved-pair"><div class="video-pair"><figure class="method-video"><figcaption>RAG-Gesture</figcaption>
+<video aria-label="Example 03 of 13, RAG-Gesture, retrieved gesture" controls="" data-poster="media/retrieved/03-baseline.jpg" height="960" playsinline="" preload="none" src="media/retrieved/03-baseline.mp4" width="640"></video></figure><figure class="method-video"><figcaption>Semantic Motion Anchors</figcaption>
+<video aria-label="Example 03 of 13, Semantic Motion Anchors, retrieved gesture" controls="" data-poster="media/retrieved/03-anchors.jpg" height="960" playsinline="" preload="none" src="media/retrieved/03-anchors.mp4" width="640"></video></figure></div>
+<div class="gallery-controls" hidden=""><button aria-pressed="false" class="play-pair" type="button">Play both</button></div></div>
+<details class="research-disclosure generation-demo" id="generation-demo-03"><summary>View generation demo · Example 03</summary>
+<div class="research-detail-body"><div class="study-pair generated-pair"><div class="video-pair"><figure class="method-video"><figcaption>RAG-Gesture</figcaption>
+<video aria-label="Example 03 of 13, RAG-Gesture, retrieved motion on the left and generated motion on the right" controls="" data-poster="media/03-baseline.jpg" height="960" playsinline="" preload="none" src="media/03-baseline.mp4" width="1280"></video></figure><figure class="method-video"><figcaption>Semantic Motion Anchors</figcaption>
+<video aria-label="Example 03 of 13, Semantic Motion Anchors, retrieved motion on the left and generated motion on the right" controls="" data-poster="media/03-anchors.jpg" height="960" playsinline="" preload="none" src="media/03-anchors.mp4" width="1280"></video></figure></div>
+<div class="gallery-controls" hidden=""><button aria-pressed="false" class="play-pair" type="button">Play both</button></div></div></div></details></article><article class="example-slide sample study-card" data-example="04">
+<h3 class="study-example">Example 04 of 13</h3><div class="study-pair retrieved-pair"><div class="video-pair"><figure class="method-video"><figcaption>RAG-Gesture</figcaption>
+<video aria-label="Example 04 of 13, RAG-Gesture, retrieved gesture" controls="" data-poster="media/retrieved/04-baseline.jpg" height="960" playsinline="" preload="none" src="media/retrieved/04-baseline.mp4" width="640"></video></figure><figure class="method-video"><figcaption>Semantic Motion Anchors</figcaption>
+<video aria-label="Example 04 of 13, Semantic Motion Anchors, retrieved gesture" controls="" data-poster="media/retrieved/04-anchors.jpg" height="960" playsinline="" preload="none" src="media/retrieved/04-anchors.mp4" width="640"></video></figure></div>
+<div class="gallery-controls" hidden=""><button aria-pressed="false" class="play-pair" type="button">Play both</button></div></div>
+<details class="research-disclosure generation-demo" id="generation-demo-04"><summary>View generation demo · Example 04</summary>
+<div class="research-detail-body"><div class="study-pair generated-pair"><div class="video-pair"><figure class="method-video"><figcaption>RAG-Gesture</figcaption>
+<video aria-label="Example 04 of 13, RAG-Gesture, retrieved motion on the left and generated motion on the right" controls="" data-poster="media/04-baseline.jpg" height="960" playsinline="" preload="none" src="media/04-baseline.mp4" width="1280"></video></figure><figure class="method-video"><figcaption>Semantic Motion Anchors</figcaption>
+<video aria-label="Example 04 of 13, Semantic Motion Anchors, retrieved motion on the left and generated motion on the right" controls="" data-poster="media/04-anchors.jpg" height="960" playsinline="" preload="none" src="media/04-anchors.mp4" width="1280"></video></figure></div>
+<div class="gallery-controls" hidden=""><button aria-pressed="false" class="play-pair" type="button">Play both</button></div></div></div></details></article><article class="example-slide sample study-card" data-example="05">
+<h3 class="study-example">Example 05 of 13</h3><div class="study-pair retrieved-pair"><div class="video-pair"><figure class="method-video"><figcaption>RAG-Gesture</figcaption>
+<video aria-label="Example 05 of 13, RAG-Gesture, retrieved gesture" controls="" data-poster="media/retrieved/05-baseline.jpg" height="960" playsinline="" preload="none" src="media/retrieved/05-baseline.mp4" width="640"></video></figure><figure class="method-video"><figcaption>Semantic Motion Anchors</figcaption>
+<video aria-label="Example 05 of 13, Semantic Motion Anchors, retrieved gesture" controls="" data-poster="media/retrieved/05-anchors.jpg" height="960" playsinline="" preload="none" src="media/retrieved/05-anchors.mp4" width="640"></video></figure></div>
+<div class="gallery-controls" hidden=""><button aria-pressed="false" class="play-pair" type="button">Play both</button></div></div>
+<details class="research-disclosure generation-demo" id="generation-demo-05"><summary>View generation demo · Example 05</summary>
+<div class="research-detail-body"><div class="study-pair generated-pair"><div class="video-pair"><figure class="method-video"><figcaption>RAG-Gesture</figcaption>
+<video aria-label="Example 05 of 13, RAG-Gesture, retrieved motion on the left and generated motion on the right" controls="" data-poster="media/05-baseline.jpg" height="960" playsinline="" preload="none" src="media/05-baseline.mp4" width="1280"></video></figure><figure class="method-video"><figcaption>Semantic Motion Anchors</figcaption>
+<video aria-label="Example 05 of 13, Semantic Motion Anchors, retrieved motion on the left and generated motion on the right" controls="" data-poster="media/05-anchors.jpg" height="960" playsinline="" preload="none" src="media/05-anchors.mp4" width="1280"></video></figure></div>
+<div class="gallery-controls" hidden=""><button aria-pressed="false" class="play-pair" type="button">Play both</button></div></div></div></details></article><article class="example-slide sample study-card" data-example="06">
+<h3 class="study-example">Example 06 of 13</h3><div class="study-pair retrieved-pair"><div class="video-pair"><figure class="method-video"><figcaption>RAG-Gesture</figcaption>
+<video aria-label="Example 06 of 13, RAG-Gesture, retrieved gesture" controls="" data-poster="media/retrieved/06-baseline.jpg" height="960" playsinline="" preload="none" src="media/retrieved/06-baseline.mp4" width="640"></video></figure><figure class="method-video"><figcaption>Semantic Motion Anchors</figcaption>
+<video aria-label="Example 06 of 13, Semantic Motion Anchors, retrieved gesture" controls="" data-poster="media/retrieved/06-anchors.jpg" height="960" playsinline="" preload="none" src="media/retrieved/06-anchors.mp4" width="640"></video></figure></div>
+<div class="gallery-controls" hidden=""><button aria-pressed="false" class="play-pair" type="button">Play both</button></div></div>
+<details class="research-disclosure generation-demo" id="generation-demo-06"><summary>View generation demo · Example 06</summary>
+<div class="research-detail-body"><div class="study-pair generated-pair"><div class="video-pair"><figure class="method-video"><figcaption>RAG-Gesture</figcaption>
+<video aria-label="Example 06 of 13, RAG-Gesture, retrieved motion on the left and generated motion on the right" controls="" data-poster="media/06-baseline.jpg" height="960" playsinline="" preload="none" src="media/06-baseline.mp4" width="1280"></video></figure><figure class="method-video"><figcaption>Semantic Motion Anchors</figcaption>
+<video aria-label="Example 06 of 13, Semantic Motion Anchors, retrieved motion on the left and generated motion on the right" controls="" data-poster="media/06-anchors.jpg" height="960" playsinline="" preload="none" src="media/06-anchors.mp4" width="1280"></video></figure></div>
+<div class="gallery-controls" hidden=""><button aria-pressed="false" class="play-pair" type="button">Play both</button></div></div></div></details></article><article class="example-slide sample study-card" data-example="07">
+<h3 class="study-example">Example 07 of 13</h3><div class="study-pair retrieved-pair"><div class="video-pair"><figure class="method-video"><figcaption>RAG-Gesture</figcaption>
+<video aria-label="Example 07 of 13, RAG-Gesture, retrieved gesture" controls="" data-poster="media/retrieved/07-baseline.jpg" height="960" playsinline="" preload="none" src="media/retrieved/07-baseline.mp4" width="640"></video></figure><figure class="method-video"><figcaption>Semantic Motion Anchors</figcaption>
+<video aria-label="Example 07 of 13, Semantic Motion Anchors, retrieved gesture" controls="" data-poster="media/retrieved/07-anchors.jpg" height="960" playsinline="" preload="none" src="media/retrieved/07-anchors.mp4" width="640"></video></figure></div>
+<div class="gallery-controls" hidden=""><button aria-pressed="false" class="play-pair" type="button">Play both</button></div></div>
+<details class="research-disclosure generation-demo" id="generation-demo-07"><summary>View generation demo · Example 07</summary>
+<div class="research-detail-body"><div class="study-pair generated-pair"><div class="video-pair"><figure class="method-video"><figcaption>RAG-Gesture</figcaption>
+<video aria-label="Example 07 of 13, RAG-Gesture, retrieved motion on the left and generated motion on the right" controls="" data-poster="media/07-baseline.jpg" height="960" playsinline="" preload="none" src="media/07-baseline.mp4" width="1280"></video></figure><figure class="method-video"><figcaption>Semantic Motion Anchors</figcaption>
+<video aria-label="Example 07 of 13, Semantic Motion Anchors, retrieved motion on the left and generated motion on the right" controls="" data-poster="media/07-anchors.jpg" height="960" playsinline="" preload="none" src="media/07-anchors.mp4" width="1280"></video></figure></div>
+<div class="gallery-controls" hidden=""><button aria-pressed="false" class="play-pair" type="button">Play both</button></div></div></div></details></article><article class="example-slide sample study-card" data-example="08">
+<h3 class="study-example">Example 08 of 13</h3><div class="study-pair retrieved-pair"><div class="video-pair"><figure class="method-video"><figcaption>RAG-Gesture</figcaption>
+<video aria-label="Example 08 of 13, RAG-Gesture, retrieved gesture" controls="" data-poster="media/retrieved/08-baseline.jpg" height="960" playsinline="" preload="none" src="media/retrieved/08-baseline.mp4" width="640"></video></figure><figure class="method-video"><figcaption>Semantic Motion Anchors</figcaption>
+<video aria-label="Example 08 of 13, Semantic Motion Anchors, retrieved gesture" controls="" data-poster="media/retrieved/08-anchors.jpg" height="960" playsinline="" preload="none" src="media/retrieved/08-anchors.mp4" width="640"></video></figure></div>
+<div class="gallery-controls" hidden=""><button aria-pressed="false" class="play-pair" type="button">Play both</button></div></div>
+<details class="research-disclosure generation-demo" id="generation-demo-08"><summary>View generation demo · Example 08</summary>
+<div class="research-detail-body"><div class="study-pair generated-pair"><div class="video-pair"><figure class="method-video"><figcaption>RAG-Gesture</figcaption>
+<video aria-label="Example 08 of 13, RAG-Gesture, retrieved motion on the left and generated motion on the right" controls="" data-poster="media/08-baseline.jpg" height="960" playsinline="" preload="none" src="media/08-baseline.mp4" width="1280"></video></figure><figure class="method-video"><figcaption>Semantic Motion Anchors</figcaption>
+<video aria-label="Example 08 of 13, Semantic Motion Anchors, retrieved motion on the left and generated motion on the right" controls="" data-poster="media/08-anchors.jpg" height="960" playsinline="" preload="none" src="media/08-anchors.mp4" width="1280"></video></figure></div>
+<div class="gallery-controls" hidden=""><button aria-pressed="false" class="play-pair" type="button">Play both</button></div></div></div></details></article><article class="example-slide sample study-card" data-example="09">
+<h3 class="study-example">Example 09 of 13</h3><div class="study-pair retrieved-pair"><div class="video-pair"><figure class="method-video"><figcaption>RAG-Gesture</figcaption>
+<video aria-label="Example 09 of 13, RAG-Gesture, retrieved gesture" controls="" data-poster="media/retrieved/09-baseline.jpg" height="960" playsinline="" preload="none" src="media/retrieved/09-baseline.mp4" width="640"></video></figure><figure class="method-video"><figcaption>Semantic Motion Anchors</figcaption>
+<video aria-label="Example 09 of 13, Semantic Motion Anchors, retrieved gesture" controls="" data-poster="media/retrieved/09-anchors.jpg" height="960" playsinline="" preload="none" src="media/retrieved/09-anchors.mp4" width="640"></video></figure></div>
+<div class="gallery-controls" hidden=""><button aria-pressed="false" class="play-pair" type="button">Play both</button></div></div>
+<details class="research-disclosure generation-demo" id="generation-demo-09"><summary>View generation demo · Example 09</summary>
+<div class="research-detail-body"><div class="study-pair generated-pair"><div class="video-pair"><figure class="method-video"><figcaption>RAG-Gesture</figcaption>
+<video aria-label="Example 09 of 13, RAG-Gesture, retrieved motion on the left and generated motion on the right" controls="" data-poster="media/09-baseline.jpg" height="960" playsinline="" preload="none" src="media/09-baseline.mp4" width="1280"></video></figure><figure class="method-video"><figcaption>Semantic Motion Anchors</figcaption>
+<video aria-label="Example 09 of 13, Semantic Motion Anchors, retrieved motion on the left and generated motion on the right" controls="" data-poster="media/09-anchors.jpg" height="960" playsinline="" preload="none" src="media/09-anchors.mp4" width="1280"></video></figure></div>
+<div class="gallery-controls" hidden=""><button aria-pressed="false" class="play-pair" type="button">Play both</button></div></div></div></details></article><article class="example-slide sample study-card" data-example="10">
+<h3 class="study-example">Example 10 of 13</h3><div class="study-pair retrieved-pair"><div class="video-pair"><figure class="method-video"><figcaption>RAG-Gesture</figcaption>
+<video aria-label="Example 10 of 13, RAG-Gesture, retrieved gesture" controls="" data-poster="media/retrieved/10-baseline.jpg" height="960" playsinline="" preload="none" src="media/retrieved/10-baseline.mp4" width="640"></video></figure><figure class="method-video"><figcaption>Semantic Motion Anchors</figcaption>
+<video aria-label="Example 10 of 13, Semantic Motion Anchors, retrieved gesture" controls="" data-poster="media/retrieved/10-anchors.jpg" height="960" playsinline="" preload="none" src="media/retrieved/10-anchors.mp4" width="640"></video></figure></div>
+<div class="gallery-controls" hidden=""><button aria-pressed="false" class="play-pair" type="button">Play both</button></div></div>
+<details class="research-disclosure generation-demo" id="generation-demo-10"><summary>View generation demo · Example 10</summary>
+<div class="research-detail-body"><div class="study-pair generated-pair"><div class="video-pair"><figure class="method-video"><figcaption>RAG-Gesture</figcaption>
+<video aria-label="Example 10 of 13, RAG-Gesture, retrieved motion on the left and generated motion on the right" controls="" data-poster="media/10-baseline.jpg" height="960" playsinline="" preload="none" src="media/10-baseline.mp4" width="1280"></video></figure><figure class="method-video"><figcaption>Semantic Motion Anchors</figcaption>
+<video aria-label="Example 10 of 13, Semantic Motion Anchors, retrieved motion on the left and generated motion on the right" controls="" data-poster="media/10-anchors.jpg" height="960" playsinline="" preload="none" src="media/10-anchors.mp4" width="1280"></video></figure></div>
+<div class="gallery-controls" hidden=""><button aria-pressed="false" class="play-pair" type="button">Play both</button></div></div></div></details></article><article class="example-slide sample study-card" data-example="11">
+<h3 class="study-example">Example 11 of 13</h3><div class="study-pair retrieved-pair"><div class="video-pair"><figure class="method-video"><figcaption>RAG-Gesture</figcaption>
+<video aria-label="Example 11 of 13, RAG-Gesture, retrieved gesture" controls="" data-poster="media/retrieved/11-baseline.jpg" height="960" playsinline="" preload="none" src="media/retrieved/11-baseline.mp4" width="640"></video></figure><figure class="method-video"><figcaption>Semantic Motion Anchors</figcaption>
+<video aria-label="Example 11 of 13, Semantic Motion Anchors, retrieved gesture" controls="" data-poster="media/retrieved/11-anchors.jpg" height="960" playsinline="" preload="none" src="media/retrieved/11-anchors.mp4" width="640"></video></figure></div>
+<div class="gallery-controls" hidden=""><button aria-pressed="false" class="play-pair" type="button">Play both</button></div></div>
+<details class="research-disclosure generation-demo" id="generation-demo-11"><summary>View generation demo · Example 11</summary>
+<div class="research-detail-body"><div class="study-pair generated-pair"><div class="video-pair"><figure class="method-video"><figcaption>RAG-Gesture</figcaption>
+<video aria-label="Example 11 of 13, RAG-Gesture, retrieved motion on the left and generated motion on the right" controls="" data-poster="media/11-baseline.jpg" height="960" playsinline="" preload="none" src="media/11-baseline.mp4" width="1280"></video></figure><figure class="method-video"><figcaption>Semantic Motion Anchors</figcaption>
+<video aria-label="Example 11 of 13, Semantic Motion Anchors, retrieved motion on the left and generated motion on the right" controls="" data-poster="media/11-anchors.jpg" height="960" playsinline="" preload="none" src="media/11-anchors.mp4" width="1280"></video></figure></div>
+<div class="gallery-controls" hidden=""><button aria-pressed="false" class="play-pair" type="button">Play both</button></div></div></div></details></article><article class="example-slide sample study-card" data-example="12">
+<h3 class="study-example">Example 12 of 13</h3><div class="study-pair retrieved-pair"><div class="video-pair"><figure class="method-video"><figcaption>RAG-Gesture</figcaption>
+<video aria-label="Example 12 of 13, RAG-Gesture, retrieved gesture" controls="" data-poster="media/retrieved/12-baseline.jpg" height="960" playsinline="" preload="none" src="media/retrieved/12-baseline.mp4" width="640"></video></figure><figure class="method-video"><figcaption>Semantic Motion Anchors</figcaption>
+<video aria-label="Example 12 of 13, Semantic Motion Anchors, retrieved gesture" controls="" data-poster="media/retrieved/12-anchors.jpg" height="960" playsinline="" preload="none" src="media/retrieved/12-anchors.mp4" width="640"></video></figure></div>
+<div class="gallery-controls" hidden=""><button aria-pressed="false" class="play-pair" type="button">Play both</button></div></div>
+<details class="research-disclosure generation-demo" id="generation-demo-12"><summary>View generation demo · Example 12</summary>
+<div class="research-detail-body"><div class="study-pair generated-pair"><div class="video-pair"><figure class="method-video"><figcaption>RAG-Gesture</figcaption>
+<video aria-label="Example 12 of 13, RAG-Gesture, retrieved motion on the left and generated motion on the right" controls="" data-poster="media/12-baseline.jpg" height="960" playsinline="" preload="none" src="media/12-baseline.mp4" width="1280"></video></figure><figure class="method-video"><figcaption>Semantic Motion Anchors</figcaption>
+<video aria-label="Example 12 of 13, Semantic Motion Anchors, retrieved motion on the left and generated motion on the right" controls="" data-poster="media/12-anchors.jpg" height="960" playsinline="" preload="none" src="media/12-anchors.mp4" width="1280"></video></figure></div>
+<div class="gallery-controls" hidden=""><button aria-pressed="false" class="play-pair" type="button">Play both</button></div></div></div></details></article><article class="example-slide sample study-card" data-example="13">
+<h3 class="study-example">Example 13 of 13</h3><div class="study-pair retrieved-pair"><div class="video-pair"><figure class="method-video"><figcaption>RAG-Gesture</figcaption>
+<video aria-label="Example 13 of 13, RAG-Gesture, retrieved gesture" controls="" data-poster="media/retrieved/13-baseline.jpg" height="960" playsinline="" preload="none" src="media/retrieved/13-baseline.mp4" width="640"></video></figure><figure class="method-video"><figcaption>Semantic Motion Anchors</figcaption>
+<video aria-label="Example 13 of 13, Semantic Motion Anchors, retrieved gesture" controls="" data-poster="media/retrieved/13-anchors.jpg" height="960" playsinline="" preload="none" src="media/retrieved/13-anchors.mp4" width="640"></video></figure></div>
+<div class="gallery-controls" hidden=""><button aria-pressed="false" class="play-pair" type="button">Play both</button></div></div>
+<details class="research-disclosure generation-demo" id="generation-demo-13"><summary>View generation demo · Example 13</summary>
+<div class="research-detail-body"><div class="study-pair generated-pair"><div class="video-pair"><figure class="method-video"><figcaption>RAG-Gesture</figcaption>
+<video aria-label="Example 13 of 13, RAG-Gesture, retrieved motion on the left and generated motion on the right" controls="" data-poster="media/13-baseline.jpg" height="960" playsinline="" preload="none" src="media/13-baseline.mp4" width="1280"></video></figure><figure class="method-video"><figcaption>Semantic Motion Anchors</figcaption>
+<video aria-label="Example 13 of 13, Semantic Motion Anchors, retrieved motion on the left and generated motion on the right" controls="" data-poster="media/13-anchors.jpg" height="960" playsinline="" preload="none" src="media/13-anchors.mp4" width="1280"></video></figure></div>
+<div class="gallery-controls" hidden=""><button aria-pressed="false" class="play-pair" type="button">Play both</button></div></div></div></details></article></div><div class="examples-pager" hidden="">
+<button aria-label="Previous comparison example" data-step="-1" type="button"><span aria-hidden="true">←</span></button>
+<div class="album-progress"><select aria-label="Choose a comparison example" class="study-jump" id="pair-select"><option value="01">Example 01 of 13</option><option value="02">Example 02 of 13</option><option value="03">Example 03 of 13</option><option value="04">Example 04 of 13</option><option value="05">Example 05 of 13</option><option value="06">Example 06 of 13</option><option value="07">Example 07 of 13</option><option value="08">Example 08 of 13</option><option value="09">Example 09 of 13</option><option value="10">Example 10 of 13</option><option value="11">Example 11 of 13</option><option value="12">Example 12 of 13</option><option value="13">Example 13 of 13</option></select><button aria-label="Show Example 01 of 13" class="album-dot" data-to="0" title="Example 01 of 13" type="button"></button><button aria-label="Show Example 02 of 13" class="album-dot" data-to="1" title="Example 02 of 13" type="button"></button><button aria-label="Show Example 03 of 13" class="album-dot" data-to="2" title="Example 03 of 13" type="button"></button><button aria-label="Show Example 04 of 13" class="album-dot" data-to="3" title="Example 04 of 13" type="button"></button><button aria-label="Show Example 05 of 13" class="album-dot" data-to="4" title="Example 05 of 13" type="button"></button><button aria-label="Show Example 06 of 13" class="album-dot" data-to="5" title="Example 06 of 13" type="button"></button><button aria-label="Show Example 07 of 13" class="album-dot" data-to="6" title="Example 07 of 13" type="button"></button><button aria-label="Show Example 08 of 13" class="album-dot" data-to="7" title="Example 08 of 13" type="button"></button><button aria-label="Show Example 09 of 13" class="album-dot" data-to="8" title="Example 09 of 13" type="button"></button><button aria-label="Show Example 10 of 13" class="album-dot" data-to="9" title="Example 10 of 13" type="button"></button><button aria-label="Show Example 11 of 13" class="album-dot" data-to="10" title="Example 11 of 13" type="button"></button><button aria-label="Show Example 12 of 13" class="album-dot" data-to="11" title="Example 12 of 13" type="button"></button><button aria-label="Show Example 13 of 13" class="album-dot" data-to="12" title="Example 13 of 13" type="button"></button><span aria-hidden="true" class="examples-count">1 / 13</span></div>
+<button aria-label="Next comparison example" data-step="1" type="button"><span aria-hidden="true">→</span></button>
+</div>
+<span aria-atomic="true" class="visually-hidden examples-status" role="status"></span></div><details class="research-disclosure" id="study-design"><summary>How did participants compare the gestures?</summary><div class="research-detail-body"><p>Each of the 32 participants made 10 forced choices between paired gesture animations. For the same spoken query and retrieval database, participants compared the gesture retrieved by RAG-Gesture with the gesture retrieved using semantic motion anchors.</p></div></details></div>
 </div>
 </div>
 </section><section class="section" id="citation">
@@ -314,4 +598,177 @@
 </section></main><footer class="footer paper-footer"><div class="container is-max-desktop has-text-centered"><nav aria-label="Project pages"><a href="index.html">Semantic Motion Anchors</a> · <a href="dataset.html">SEMANTIX</a> · <a href="index.html#citation">Citation</a></nav><div aria-label="Institution logos" class="institution-logos">
 <img alt="Max Planck Institute for Informatics" height="48" src="images/logos/mpi-inf.png" width="160"/>
 <img alt="Saarland Informatics Campus" height="48" src="images/logos/sic-logo.webp" width="160"/>
-</div></div></footer></body></html>
+</div></div></footer><script>(() => {
+  const album = document.querySelector('#comparisons.study-album');
+  if (!album) return;
+  const jump = album.querySelector('#pair-select');
+  const dots = [...album.querySelectorAll('.album-dot')];
+  const status = album.querySelector('.examples-status');
+  const cards = [...album.querySelectorAll('.study-card')];
+  function showPosters(container) {
+    container.querySelectorAll('video[data-poster]:not([poster])').forEach(video => { video.poster = video.dataset.poster; });
+  }
+  function showNearbyPosters(card) {
+    const index = cards.indexOf(card);
+    for (const offset of [-1, 0, 1]) {
+      const neighbor = cards[(index + offset + cards.length) % cards.length];
+      showPosters(neighbor.querySelector('.retrieved-pair'));
+    }
+  }
+  showNearbyPosters(cards[0]);
+
+  for (const pair of album.querySelectorAll('.study-pair')) {
+    const [left, right] = pair.querySelectorAll('video');
+    const button = pair.querySelector('.play-pair');
+    let paired = false, revision = 0;
+    function pauseBoth() {
+      paired = false;
+      revision++;
+      if (!left.paused) left.pause();
+      if (!right.paused) right.pause();
+      button.textContent = 'Play both';
+      button.setAttribute('aria-pressed', 'false');
+    }
+    button.addEventListener('click', async () => {
+      if (paired) { pauseBoth(); return; }
+      const active = ++revision;
+      if (left.ended || right.ended) left.currentTime = 0;
+      right.currentTime = left.currentTime;
+      right.muted = true;
+      paired = true;
+      button.textContent = 'Pause both';
+      button.setAttribute('aria-pressed', 'true');
+      try { await Promise.all([left.play(), right.play()]); }
+      catch {
+        if (revision !== active) return;
+        pauseBoth();
+        status.textContent = 'Use the controls on either video to start playback.';
+      }
+    });
+    for (const video of [left,right]) {
+      video.addEventListener('pause', () => { if (paired && video.paused) pauseBoth(); });
+      video.addEventListener('ended', () => { if (paired) pauseBoth(); });
+    }
+    left.addEventListener('timeupdate', () => {
+      if (paired && !right.seeking && Math.abs(left.currentTime - right.currentTime) > .25)
+        right.currentTime = left.currentTime;
+    });
+    button.parentElement.hidden = false;
+  }
+
+  album.addEventListener('play', event => {
+    if (event.target.tagName !== 'VIDEO') return;
+    const video = event.target;
+    if (video.paused) return;
+    const card = video.closest('.study-card');
+    if (card.inert) { video.pause(); return; }
+    for (const other of card.querySelectorAll('video')) {
+      if (!other.paused && other.closest('.study-pair') !== video.closest('.study-pair')) other.pause();
+    }
+  }, true);
+  for (const demo of album.querySelectorAll('details')) {
+    demo.addEventListener('toggle', () => {
+      if (demo.open && !demo.closest('article').inert) {
+        showPosters(demo);
+        demo.closest('article').querySelectorAll('.retrieved-pair video').forEach(v => { if (!v.paused) v.pause(); });
+      } else if (!demo.open) {
+        demo.querySelectorAll('video').forEach(v => { if (!v.paused) v.pause(); });
+      }
+    });
+  }
+  album.addEventListener('carouselchange', event => {
+    const {from, to} = event.detail;
+    const previousDemo = from.querySelector('details');
+    to.querySelector('details').open = previousDemo.open;
+    previousDemo.open = false;
+    jump.value = to.dataset.example;
+    showNearbyPosters(to);
+  });
+  jump.addEventListener('change', () => dots[jump.selectedIndex].click());
+
+  let start = null;
+  album.addEventListener('touchstart', event => {
+    start = event.touches.length === 1 && !event.target.closest('video,button,select,summary,a') ? event.touches[0] : null;
+  }, {passive: true});
+  album.addEventListener('touchcancel', () => { start = null; }, {passive: true});
+  album.addEventListener('touchend', event => {
+    if (!start) return;
+    const dx = event.changedTouches[0].clientX - start.clientX;
+    const dy = event.changedTouches[0].clientY - start.clientY;
+    start = null;
+    if (Math.abs(dx) > 45 && Math.abs(dx) > 1.5 * Math.abs(dy))
+      album.querySelector(dx < 0 ? '[data-step="1"]' : '[data-step="-1"]').click();
+  }, {passive: true});
+
+  function followMovedRetrieval() {
+    if (['#examples-retrieval', '#examples-source-pairs'].includes(location.hash))
+      album.scrollIntoView({block: 'start'});
+  }
+  followMovedRetrieval();
+  window.addEventListener('hashchange', followMovedRetrieval);
+})();
+</script><script>(() => {
+  document.querySelectorAll('[data-carousel]').forEach(panel => {
+    const slides = [...panel.querySelectorAll('.example-slide')];
+    const pager = panel.querySelector('.examples-pager');
+    const count = panel.querySelector('.examples-count');
+    const status = panel.querySelector('.examples-status');
+    const album = panel.classList.contains('method-album');
+    const dots = [...pager.querySelectorAll('[data-to]')];
+    let index = 0;
+    function show(target, announce) {
+      const from = slides[index];
+      from.querySelectorAll('video').forEach(video => { if (!video.paused) video.pause(); });
+      index = (target + slides.length) % slides.length;
+      const previous = (index + slides.length - 1) % slides.length;
+      const next = (index + 1) % slides.length;
+      slides.forEach((slide, j) => {
+        if (!album) {
+          slide.hidden = j !== index;
+          return;
+        }
+        let position = 'back';
+        if (j === index) position = 'front';
+        else if (j === previous) position = 'left';
+        else if (j === next) position = 'right';
+        slide.dataset.position = position;
+        slide.inert = j !== index;
+        slide.setAttribute('aria-hidden', String(j !== index));
+        dots[j].setAttribute('aria-current', String(j === index));
+      });
+      count.textContent = (index + 1) + ' / ' + slides.length;
+      if (from !== slides[index]) {
+        panel.dispatchEvent(new CustomEvent('carouselchange', {detail: {from, to: slides[index]}}));
+      }
+      if (announce) {
+        const active = slides[index];
+        status.textContent = (panel.dataset.itemName || 'Example') + ' ' + (index + 1) + ' of ' + slides.length + '.' + (active.dataset.label ? ' ' + active.dataset.label : '');
+      }
+    }
+    pager.querySelectorAll('[data-step]').forEach(button => {
+      button.addEventListener('click', () => show(index + Number(button.dataset.step), true));
+    });
+    dots.forEach((button, j) => button.addEventListener('click', () => show(j, true)));
+    // Arrow keys on the pager change examples. Native video controls keep their own shortcuts.
+    pager.addEventListener('keydown', event => {
+      if (event.target.matches('select')) return;
+      if (event.key !== 'ArrowLeft' && event.key !== 'ArrowRight') return;
+      event.preventDefault();
+      show(index + (event.key === 'ArrowLeft' ? -1 : 1), true);
+      if (event.target.matches('[data-to]')) dots[index].focus();
+    });
+    show(0, false);
+    pager.hidden = slides.length < 2;
+    if (album) panel.classList.add('is-ready');
+  });
+
+  // Earlier local preview links now lead to the collections' new locations.
+  function followMovedClips() {
+    if (location.hash === '#examples-clips' && document.getElementById('qualitative')) {
+      location.replace('dataset.html#examples');
+    }
+  }
+  followMovedClips();
+  window.addEventListener('hashchange', followMovedClips);
+})();
+</script></body></html>
