@@ -1,6 +1,5 @@
 <!DOCTYPE html>
-
-<html lang="en"><head><meta charset="utf-8"/><meta content="width=device-width,initial-scale=1" name="viewport"/><title>SEMANTIX | Semantic Motion Anchors</title><meta content="SEMANTIX construction, dataset statistics, and gesture annotations." name="description"/><link href="images/logos/mpi_favicon.png" rel="icon"/><link href="css/bulma.min.css" rel="stylesheet"/><link href="css/mustreason.css" rel="stylesheet"/><link href="css/research-flow.css?v=result-details-1" rel="stylesheet"/><script defer="" src="js/project.js"></script><link href="css/local-gallery.css?v=rounded-album" rel="stylesheet"/><script defer="" src="js/local-gallery.js?v=clip-buttons"></script><link href="css/semantix-media.css?v=direct-clips" rel="stylesheet"/></head><body><a class="skip" href="#main">Skip to content</a><main id="main"><section class="hero">
+<html lang="en"><head><meta charset="utf-8"/><meta content="width=device-width,initial-scale=1" name="viewport"/><title>SEMANTIX | Semantic Motion Anchors</title><meta content="SEMANTIX construction, dataset statistics, and gesture annotations." name="description"/><link href="images/logos/mpi_favicon.png" rel="icon"/><link href="css/bulma.min.css" rel="stylesheet"/><link href="css/mustreason.css" rel="stylesheet"/><link href="css/research-flow.css?v=result-details-1" rel="stylesheet"/><script defer="" src="js/project.js"></script><link href="css/local-gallery.css?v=rounded-album" rel="stylesheet"/><script defer="" src="js/local-gallery.js?v=clip-buttons"></script><script defer="" src="js/semantix-media.js?v=direct-clips"></script><link href="css/semantix-media.css?v=direct-clips" rel="stylesheet"/></head><body><a class="skip" href="#main">Skip to content</a><main id="main"><section class="hero">
 <div class="hero-body">
 <div class="container is-max-desktop">
 <div class="columns is-centered">
@@ -70,18 +69,7 @@
 </div><p class="sample-credit">Annotations: <a href="https://huggingface.co/datasets/aboots/SEMANTIX">SEMANTIX</a> · <a href="https://creativecommons.org/licenses/by-nc/4.0/">CC BY-NC 4.0</a></p></div>
 </div>
 </div>
-</section><script>document.querySelectorAll('#examples-clips .clip-controls').forEach(controls => {
-  const video = controls.parentElement.querySelector('video');
-  if (!video) return;
-  const buttons = controls.querySelectorAll('button[data-src]');
-  buttons.forEach(button => button.addEventListener('click', () => {
-    if (video.getAttribute('src') !== button.dataset.src) video.src = button.dataset.src;
-    buttons.forEach(option => option.setAttribute('aria-pressed', String(option === button)));
-    video.play().catch(() => {});
-  }));
-  controls.hidden = false;
-});
-</script></main><footer class="footer dataset-footer"><div class="container is-max-desktop has-text-centered"><nav aria-label="Project pages"><a href="index.html">Semantic Motion Anchors</a> · <a href="dataset.html">SEMANTIX</a> · <a href="index.html#citation">Citation</a></nav><div aria-label="Institution logos" class="institution-logos">
+</section></main><footer class="footer dataset-footer"><div class="container is-max-desktop has-text-centered"><nav aria-label="Project pages"><a href="index.html">Semantic Motion Anchors</a> · <a href="dataset.html">SEMANTIX</a> · <a href="index.html#citation">Citation</a></nav><div aria-label="Institution logos" class="institution-logos">
 <img alt="Max Planck Institute for Informatics" height="48" src="images/logos/mpi-inf.png" width="160"/>
 <img alt="Saarland Informatics Campus" height="48" src="images/logos/sic-logo.webp" width="160"/>
 </div></div></footer></body></html>
