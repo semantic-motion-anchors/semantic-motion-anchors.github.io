@@ -10,7 +10,7 @@ https://arxiv.org/html/2605.30608v3 · CC BY 4.0, https://creativecommons.org/li
 
 SEMANTIX annotations: Suresh et al., https://huggingface.co/datasets/aboots/SEMANTIX
 CC BY-NC 4.0, https://creativecommons.org/licenses/by-nc/4.0/
-TED talks are credited on individual cards. BEAT2: Liu et al., EMAGE, CVPR 2024.
+BEAT2: Liu et al., EMAGE, CVPR 2024.
 
 Bulma license
 -------------
