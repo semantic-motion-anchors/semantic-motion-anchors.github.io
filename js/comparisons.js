@@ -1,7 +1,6 @@
 (() => {
-  const album = document.querySelector('#comparisons.study-album');
-  if (!album) return;
-  const jump = album.querySelector('#pair-select');
+  document.querySelectorAll('.study-album').forEach(album => {
+  const jump = album.querySelector('.study-jump');
   const dots = [...album.querySelectorAll('.album-dot')];
   const status = album.querySelector('.examples-status');
   const cards = [...album.querySelectorAll('.study-card')];
@@ -12,7 +11,7 @@
     const index = cards.indexOf(card);
     for (const offset of [-1, 0, 1]) {
       const neighbor = cards[(index + offset + cards.length) % cards.length];
-      showPosters(neighbor.querySelector('.retrieved-pair'));
+      showPosters(neighbor);
     }
   }
   showNearbyPosters(cards[0]);
@@ -62,25 +61,12 @@
     if (video.paused) return;
     const card = video.closest('.study-card');
     if (card.inert) { video.pause(); return; }
-    for (const other of card.querySelectorAll('video')) {
+    for (const other of document.querySelectorAll('video')) {
       if (!other.paused && other.closest('.study-pair') !== video.closest('.study-pair')) other.pause();
     }
   }, true);
-  for (const demo of album.querySelectorAll('details')) {
-    demo.addEventListener('toggle', () => {
-      if (demo.open && !demo.closest('article').inert) {
-        showPosters(demo);
-        demo.closest('article').querySelectorAll('.retrieved-pair video').forEach(v => { if (!v.paused) v.pause(); });
-      } else if (!demo.open) {
-        demo.querySelectorAll('video').forEach(v => { if (!v.paused) v.pause(); });
-      }
-    });
-  }
   album.addEventListener('carouselchange', event => {
-    const {from, to} = event.detail;
-    const previousDemo = from.querySelector('details');
-    to.querySelector('details').open = previousDemo.open;
-    previousDemo.open = false;
+    const {to} = event.detail;
     jump.value = to.dataset.example;
     showNearbyPosters(to);
   });
@@ -100,9 +86,10 @@
       album.querySelector(dx < 0 ? '[data-step="1"]' : '[data-step="-1"]').click();
   }, {passive: true});
 
+  });
   function followMovedRetrieval() {
-    if (['#examples-retrieval', '#examples-source-pairs'].includes(location.hash))
-      album.scrollIntoView({block: 'start'});
+    if (['#qualitative', '#examples-retrieval', '#examples-source-pairs'].includes(location.hash))
+      document.getElementById('retrieval')?.scrollIntoView({block: 'start'});
   }
   followMovedRetrieval();
   window.addEventListener('hashchange', followMovedRetrieval);

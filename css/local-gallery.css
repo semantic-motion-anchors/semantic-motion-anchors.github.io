@@ -136,7 +136,7 @@
 .clip-album.is-ready .examples-pager [data-step] {
   align-self: start; width: 44px; height: 44px; margin-top: calc(3.3rem + 25%);
 }
-#application > .container { width: 100%; }
+:is(#retrieval, #application) > .container { width: 100%; }
 .study-album { margin-block: 1rem; }
 .study-album .study-card { text-align: left; }
 .study-card .study-example { margin: 0 0 .55rem; font-size: 1rem; font-weight: 650; color: var(--ink); }
@@ -179,4 +179,4 @@
 @media (min-width: 37.5rem) and (max-width: 63.99rem) {
   #anchor-construction .flow { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 }
-:is(#results, #application) .tagline .metric-value { color: var(--primary-color); }
+:is(#results, #retrieval, #application) .tagline .metric-value { color: var(--primary-color); }
