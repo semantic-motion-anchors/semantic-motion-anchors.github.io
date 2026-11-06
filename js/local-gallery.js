@@ -55,7 +55,7 @@
 
   // Earlier local preview links now lead to the collections' new locations.
   function followMovedClips() {
-    if (location.hash === '#examples-clips' && document.getElementById('qualitative')) {
+    if (location.hash === '#examples-clips' && document.querySelector('.study-album')) {
       location.replace('dataset.html#examples');
     }
   }
