@@ -5,14 +5,15 @@
     const count = panel.querySelector('.examples-count');
     const status = panel.querySelector('.examples-status');
     const album = panel.classList.contains('method-album');
+    const loop = panel.dataset.loop !== 'false';
     const dots = [...pager.querySelectorAll('[data-to]')];
     let index = 0;
     function show(target, announce) {
       const from = slides[index];
       from.querySelectorAll('video').forEach(video => { if (!video.paused) video.pause(); });
-      index = (target + slides.length) % slides.length;
-      const previous = (index + slides.length - 1) % slides.length;
-      const next = (index + 1) % slides.length;
+      index = loop ? (target + slides.length) % slides.length : Math.max(0, Math.min(target, slides.length - 1));
+      const previous = loop ? (index + slides.length - 1) % slides.length : index - 1;
+      const next = loop ? (index + 1) % slides.length : index + 1;
       slides.forEach((slide, j) => {
         if (!album) {
           slide.hidden = j !== index;
@@ -28,6 +29,9 @@
         dots[j].setAttribute('aria-current', String(j === index));
       });
       count.textContent = (index + 1) + ' / ' + slides.length;
+      if (!loop) pager.querySelectorAll('[data-step]').forEach(button => {
+        button.disabled = Number(button.dataset.step) < 0 ? index === 0 : index === slides.length - 1;
+      });
       if (from !== slides[index]) {
         panel.dispatchEvent(new CustomEvent('carouselchange', {detail: {from, to: slides[index]}}));
       }
